@@ -1,0 +1,10 @@
+.baseMain {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.baseContent {
+    flex-grow: 1;
+    padding: 20px;
+}
