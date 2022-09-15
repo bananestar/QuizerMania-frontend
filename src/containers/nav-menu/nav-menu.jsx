@@ -134,8 +134,14 @@ const NavMenu = () => {
 						to="/"
 						underline="none"
 						color="inherit"
+						style={{ textDecoration: 'none' }}
 					>
-						Tournament Chess
+						<img
+							src="./quiz.png"
+							alt=""
+							style={{maxWidth:'25px'}}
+						/>
+						 &nbsp; QuizerMania
 					</Typography>
 				</Toolbar>
 			</AppBar>
@@ -146,20 +152,15 @@ const NavMenu = () => {
 					</IconButton>
 				</DrawerHeader>
 				<Divider />
-				<List>
-					<ListItem
-						key="sign in"
-						disablePadding
-						sx={{ display: 'block' }}
-						component={Link}
-						to="/"
-					>
+				<List >
+					<ListItem key="sign up" disablePadding sx={{ display: 'block', color:"inherit"}} component={Link} to="/" >
 						<ListItemButton
 							sx={{
 								minHeight: 48,
 								justifyContent: open ? 'initial' : 'center',
 								px: 2.5,
 							}}
+							
 						>
 							<ListItemIcon
 								sx={{
@@ -170,16 +171,10 @@ const NavMenu = () => {
 							>
 								<CreateIcon />
 							</ListItemIcon>
-							<ListItemText primary="sign up" sx={{ opacity: open ? 1 : 0 }} />
+							<ListItemText primary="sign up" sx={{ opacity: open ? 1 : 0}} />
 						</ListItemButton>
 					</ListItem>
-					<ListItem
-						key="login"
-						disablePadding
-						sx={{ display: 'block' }}
-						component={Link}
-						to="/"
-					>
+					<ListItem key="login" disablePadding sx={{ display: 'block', color:"inherit" }} component={Link} to="/">
 						<ListItemButton
 							sx={{
 								minHeight: 48,
@@ -205,7 +200,7 @@ const NavMenu = () => {
 					<ListItem
 						key="tournaments"
 						disablePadding
-						sx={{ display: 'block' }}
+						sx={{ display: 'block' , color:"inherit" }}
 						component={Link}
 						to="/"
 					>
