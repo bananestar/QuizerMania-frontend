@@ -174,7 +174,7 @@ const NavMenu = () => {
 							<ListItemText primary="sign up" sx={{ opacity: open ? 1 : 0}} />
 						</ListItemButton>
 					</ListItem>
-					<ListItem key="login" disablePadding sx={{ display: 'block', color:"inherit" }} component={Link} to="/">
+					<ListItem key="login" disablePadding sx={{ display: 'block', color:"inherit" }} component={Link} to="/login">
 						<ListItemButton
 							sx={{
 								minHeight: 48,
