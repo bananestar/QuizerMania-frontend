@@ -24,6 +24,8 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import { useRecoilState } from 'recoil';
+import { adminAtom, jwtAtom } from '../../atoms/jwtAtom';
 
 const drawerWidth = 240;
 
@@ -97,6 +99,9 @@ const NavMenu = () => {
 	const navigate = useNavigate();
 	const [open, setOpen] = useState(false);
 
+	const [token, setToken] = useRecoilState(jwtAtom);
+	const [isAdmin, setIsAdmin] = useRecoilState(adminAtom);
+
 	const handleDrawerOpen = () => {
 		setOpen(true);
 	};
@@ -136,12 +141,8 @@ const NavMenu = () => {
 						color="inherit"
 						style={{ textDecoration: 'none' }}
 					>
-						<img
-							src="./quiz.png"
-							alt=""
-							style={{maxWidth:'25px'}}
-						/>
-						 &nbsp; QuizerMania
+						<img src="./quiz.png" alt="" style={{ maxWidth: '25px' }} />
+						&nbsp; QuizerMania
 					</Typography>
 				</Toolbar>
 			</AppBar>
@@ -152,55 +153,91 @@ const NavMenu = () => {
 					</IconButton>
 				</DrawerHeader>
 				<Divider />
-				<List >
-					<ListItem key="sign up" disablePadding sx={{ display: 'block', color:"inherit"}} component={Link} to="/" >
-						<ListItemButton
-							sx={{
-								minHeight: 48,
-								justifyContent: open ? 'initial' : 'center',
-								px: 2.5,
-							}}
-							
+				{!token ? (
+					<List>
+						<ListItem
+							key="sign up"
+							disablePadding
+							sx={{ display: 'block', color: 'inherit' }}
+							component={Link}
+							to="/registration"
 						>
-							<ListItemIcon
+							<ListItemButton
 								sx={{
-									minWidth: 0,
-									mr: open ? 3 : 'auto',
-									justifyContent: 'center',
+									minHeight: 48,
+									justifyContent: open ? 'initial' : 'center',
+									px: 2.5,
 								}}
 							>
-								<CreateIcon />
-							</ListItemIcon>
-							<ListItemText primary="sign up" sx={{ opacity: open ? 1 : 0}} />
-						</ListItemButton>
-					</ListItem>
-					<ListItem key="login" disablePadding sx={{ display: 'block', color:"inherit" }} component={Link} to="/login">
-						<ListItemButton
-							sx={{
-								minHeight: 48,
-								justifyContent: open ? 'initial' : 'center',
-								px: 2.5,
-							}}
+								<ListItemIcon
+									sx={{
+										minWidth: 0,
+										mr: open ? 3 : 'auto',
+										justifyContent: 'center',
+									}}
+								>
+									<CreateIcon />
+								</ListItemIcon>
+								<ListItemText primary="sign up" sx={{ opacity: open ? 1 : 0 }} />
+							</ListItemButton>
+						</ListItem>
+						<ListItem
+							key="login"
+							disablePadding
+							sx={{ display: 'block', color: 'inherit' }}
+							component={Link}
+							to="/login"
 						>
-							<ListItemIcon
+							<ListItemButton
 								sx={{
-									minWidth: 0,
-									mr: open ? 3 : 'auto',
-									justifyContent: 'center',
+									minHeight: 48,
+									justifyContent: open ? 'initial' : 'center',
+									px: 2.5,
 								}}
 							>
-								<LoginIcon />
-							</ListItemIcon>
-							<ListItemText primary="login" sx={{ opacity: open ? 1 : 0 }} />
-						</ListItemButton>
-					</ListItem>
-				</List>
+								<ListItemIcon
+									sx={{
+										minWidth: 0,
+										mr: open ? 3 : 'auto',
+										justifyContent: 'center',
+									}}
+								>
+									<LoginIcon />
+								</ListItemIcon>
+								<ListItemText primary="login" sx={{ opacity: open ? 1 : 0 }} />
+							</ListItemButton>
+						</ListItem>
+					</List>
+				) : (
+					<>
+						<ListItem key="logout" disablePadding sx={{ display: 'block' }} onClick={handleLogout}>
+							<ListItemButton
+								sx={{
+									minHeight: 48,
+									justifyContent: open ? 'initial' : 'center',
+									px: 2.5,
+								}}
+							>
+								<ListItemIcon
+									sx={{
+										minWidth: 0,
+										mr: open ? 3 : 'auto',
+										justifyContent: 'center',
+									}}
+								>
+									<LogoutIcon />
+								</ListItemIcon>
+								<ListItemText primary="logout" sx={{ opacity: open ? 1 : 0 }} />
+							</ListItemButton>
+						</ListItem>
+					</>
+				)}
 				<Divider />
 				<List>
 					<ListItem
-						key="tournaments"
+						key="quiz"
 						disablePadding
-						sx={{ display: 'block' , color:"inherit" }}
+						sx={{ display: 'block', color: 'inherit' }}
 						component={Link}
 						to="/"
 					>
@@ -220,7 +257,7 @@ const NavMenu = () => {
 							>
 								<LensBlurIcon />
 							</ListItemIcon>
-							<ListItemText primary="tournaments" sx={{ opacity: open ? 1 : 0 }} />
+							<ListItemText primary="quiz" sx={{ opacity: open ? 1 : 0 }} />
 						</ListItemButton>
 					</ListItem>
 				</List>

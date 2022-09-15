@@ -5,6 +5,7 @@ import './App.css';
 import NotFound from './pages/error/notfound';
 import LoginPage from './pages/user/login';
 import { useJwtAdmin } from './hooks/useJwt';
+import RegistrationPage from './pages/user/registration';
 
 function App() {
 	useJwtAdmin()
@@ -12,6 +13,7 @@ function App() {
 		<Routes>
 			<Route path="/" element={<BaseLayout />}>
 				<Route index element={<HomePage />} />
+				<Route path='/registration' element={<RegistrationPage />} />
 				<Route path='/login' element={<LoginPage />} />
 				<Route path='/*' element={<NotFound />} />
 			</Route>

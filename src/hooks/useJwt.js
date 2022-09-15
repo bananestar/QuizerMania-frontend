@@ -27,6 +27,5 @@ export const useJwtAdmin = () => {
 		}
 	}, [isExpired]);
 
-	console.log('isAdmin => ', isAdmin);
 	return { isAdmin };
 };
