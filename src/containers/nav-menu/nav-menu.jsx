@@ -25,8 +25,9 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { useRecoilState } from 'recoil';
-import { adminAtom, jwtAtom, userAtom } from '../../atoms/jwtAtom';
-import { Avatar } from '@mui/material';
+import { adminAtom, jwtAtom, userAtom, userIdAtom } from '../../atoms/jwtAtom';
+import { Avatar, CircularProgress } from '@mui/material';
+import { useAccount } from '../../hooks/useRequest';
 
 const drawerWidth = 240;
 
@@ -101,8 +102,9 @@ const NavMenu = () => {
 	const [open, setOpen] = useState(false);
 
 	const [token, setToken] = useRecoilState(jwtAtom);
-	const [user, setUser] = useRecoilState(userAtom);
+	const [userId, setUserId] = useRecoilState(userIdAtom);
 	const [isAdmin, setIsAdmin] = useRecoilState(adminAtom);
+	const [user, setUser] = useRecoilState(userAtom);
 
 	const handleDrawerOpen = () => {
 		setOpen(true);
@@ -117,6 +119,8 @@ const NavMenu = () => {
 		navigate('/');
 	};
 
+	
+	
 	return (
 		<Box sx={{ display: 'flex' }}>
 			<CssBaseline />
@@ -218,7 +222,7 @@ const NavMenu = () => {
 								disablePadding
 								sx={{ display: 'block' }}
 								component={Link}
-								to="/"
+								to="/account"
 							>
 								<ListItemButton
 									sx={{
@@ -234,8 +238,9 @@ const NavMenu = () => {
 											justifyContent: 'center',
 										}}
 									>
-										<Avatar alt="" src={user.img} />
+										
 									</ListItemIcon>
+									<Avatar alt="user" src='' />
 									<ListItemText primary="Account" sx={{ opacity: open ? 1 : 0 }} />
 								</ListItemButton>
 							</ListItem>

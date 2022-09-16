@@ -1,10 +1,11 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useRecoilState } from 'recoil';
-import { jwtAtom } from '../atoms/jwtAtom';
+import { jwtAtom, userAtom } from '../atoms/jwtAtom';
 
 const URL_LOGIN = import.meta.env.VITE_API_LOGIN;
 const URL_REGISTRATION = import.meta.env.VITE_API_REGISTER;
+const URL_USER = import.meta.env.VITE_API_USERS;
 
 export const useLogin = (identifiers) => {
 	const [data, setData] = useState();
@@ -12,7 +13,6 @@ export const useLogin = (identifiers) => {
 	const [errors, setErrors] = useState();
 
 	const [token, setToken] = useRecoilState(jwtAtom);
-	
 
 	useEffect(() => {
 		axios
@@ -28,8 +28,6 @@ export const useLogin = (identifiers) => {
 				setLoading(false);
 			});
 	}, [identifiers]);
-
-	
 
 	return { data, isLoading, errors };
 };
@@ -57,4 +55,28 @@ export const useRegister = (registers) => {
 	}, [registers]);
 
 	return { data, isLoading, errors };
+};
+
+export const useAccount = (userId) => {
+	const [isLoading, setLoading] = useState(true);
+	const [errors, setErrors] = useState();
+    const [user, setUser] = useRecoilState(userAtom);
+
+	useEffect(() => {
+		if (userId) {
+			axios
+				.get(URL_USER + userId)
+				.then(({ data }) => {
+					setUser(data.result)
+                    
+				})
+				.catch((errors) => {
+					setErrors(errors);
+				})
+				.finally(() => {
+					setLoading(false);
+				});
+		}
+	}, [userId]);
+	return { isLoading, errors };
 };
