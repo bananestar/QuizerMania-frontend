@@ -25,7 +25,8 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { useRecoilState } from 'recoil';
-import { adminAtom, jwtAtom } from '../../atoms/jwtAtom';
+import { adminAtom, jwtAtom, userAtom } from '../../atoms/jwtAtom';
+import { Avatar } from '@mui/material';
 
 const drawerWidth = 240;
 
@@ -100,6 +101,7 @@ const NavMenu = () => {
 	const [open, setOpen] = useState(false);
 
 	const [token, setToken] = useRecoilState(jwtAtom);
+	const [user, setUser] = useRecoilState(userAtom);
 	const [isAdmin, setIsAdmin] = useRecoilState(adminAtom);
 
 	const handleDrawerOpen = () => {
@@ -210,26 +212,59 @@ const NavMenu = () => {
 					</List>
 				) : (
 					<>
-						<ListItem key="logout" disablePadding sx={{ display: 'block' }} onClick={handleLogout}>
-							<ListItemButton
-								sx={{
-									minHeight: 48,
-									justifyContent: open ? 'initial' : 'center',
-									px: 2.5,
-								}}
+						<List>
+							<ListItem
+								key="Account"
+								disablePadding
+								sx={{ display: 'block' }}
+								component={Link}
+								to="/"
 							>
-								<ListItemIcon
+								<ListItemButton
 									sx={{
-										minWidth: 0,
-										mr: open ? 3 : 'auto',
-										justifyContent: 'center',
+										minHeight: 48,
+										justifyContent: open ? 'initial' : 'center',
+										px: 2.5,
 									}}
 								>
-									<LogoutIcon />
-								</ListItemIcon>
-								<ListItemText primary="logout" sx={{ opacity: open ? 1 : 0 }} />
-							</ListItemButton>
-						</ListItem>
+									<ListItemIcon
+										sx={{
+											minWidth: 0,
+											mr: open ? 3 : 'auto',
+											justifyContent: 'center',
+										}}
+									>
+										<Avatar alt="" src={user.img} />
+									</ListItemIcon>
+									<ListItemText primary="Account" sx={{ opacity: open ? 1 : 0 }} />
+								</ListItemButton>
+							</ListItem>
+							<ListItem
+								key="logout"
+								disablePadding
+								sx={{ display: 'block' }}
+								onClick={handleLogout}
+							>
+								<ListItemButton
+									sx={{
+										minHeight: 48,
+										justifyContent: open ? 'initial' : 'center',
+										px: 2.5,
+									}}
+								>
+									<ListItemIcon
+										sx={{
+											minWidth: 0,
+											mr: open ? 3 : 'auto',
+											justifyContent: 'center',
+										}}
+									>
+										<LogoutIcon />
+									</ListItemIcon>
+									<ListItemText primary="logout" sx={{ opacity: open ? 1 : 0 }} />
+								</ListItemButton>
+							</ListItem>
+						</List>
 					</>
 				)}
 				<Divider />
