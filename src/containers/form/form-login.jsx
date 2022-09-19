@@ -9,10 +9,7 @@ import { jwtAtom } from '../../atoms/jwtAtom';
 import RequestLogin from '../../components/user/request/request-login';
 
 const FormLogin = () => {
-	const { handleSubmit, register } = useForm({
-		identifier: '',
-		currentPassword: '',
-	});
+	const { handleSubmit, register } = useForm();
 
 	const [identifier, setIdentifier] = useState(' ');
 	const [identifiers, setIdentifiers] = useState();
@@ -21,10 +18,10 @@ const FormLogin = () => {
 	const [errorMessageIdentifier, setErrorMessageIdentifier] = useState('');
 	const [errorMessagePassword, setErrorMessagePassword] = useState('');
 
-    const [token, setToken] = useRecoilState(jwtAtom);
-    const navigate = useNavigate();
+	const [token, setToken] = useRecoilState(jwtAtom);
+	const navigate = useNavigate();
 
-    useEffect(() => {
+	useEffect(() => {
 		if (token) {
 			navigate('/');
 		}

@@ -1,21 +1,10 @@
-import PhotoCamera from '@mui/icons-material/PhotoCamera';
-import SendIcon from '@mui/icons-material/Send';
-import { Box, Button, Container, IconButton } from '@mui/material';
-import { useEffect, useRef, useState } from 'react';
-import { Controller, set, useForm } from 'react-hook-form';
+import { Box, Container } from '@mui/material';
+import { useState } from 'react';
 import RequestAvatar from '../../components/user/request/request-avatar';
 
 const ProfilFormImg = () => {
-	// const { handleSubmit, register } = useForm();
-
 	const [file, setFile] = useState();
 	const [send, setSend] = useState(false);
-
-	// const onSubmit = (data) => {
-	// 	const formData = new FormData();
-	// 	formData.append('file', data.file[0]);
-	// 	setSelectedFile(formData);
-	// };
 
 	const handleOnChange = (e) => {
 		setFile(e.target.files[0]);
@@ -23,8 +12,8 @@ const ProfilFormImg = () => {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		setSend(true)
-	}
+		setSend(true);
+	};
 
 	return (
 		<>

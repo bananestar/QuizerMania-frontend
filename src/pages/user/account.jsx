@@ -1,51 +1,65 @@
-import { Box, Container } from '@mui/material';
+import { Box, CircularProgress, Container, Grid } from '@mui/material';
 import { useRecoilState } from 'recoil';
 import { userIdAtom } from '../../atoms/jwtAtom';
 import ProfilFormImg from '../../containers/user/profil-form-img';
+import ProfilFormMail from '../../containers/user/profil-form-mail';
+import ProfilFormPWD from '../../containers/user/profil-form-pwd';
 import ProfilImg from '../../containers/user/profil-img';
 import ProfilPseudo from '../../containers/user/profil-Pseudo';
+import ProfilScore from '../../containers/user/profil-score';
 import { useAccount } from '../../hooks/useRequest';
 
 const AccountPage = () => {
-	return (
-		<>
-			<Box
-				sx={{
-					display: 'flex',
-					flexDirection: 'column',
-					marginLeft: 30,
-				}}
-			>
+	const [userId, setUserId] = useRecoilState(userIdAtom);
+	const { user, isLoading, errors } = useAccount(userId);
+
+	if (isLoading) {
+		return <CircularProgress />;
+	}
+	if (errors) {
+		console.error('-------------ERROR------------');
+		console.error(errors);
+		console.error('-------------ERROR------------');
+		return (
+			<Alert margin="dense" severity="error">
+				{errors}
+			</Alert>
+		);
+	}
+	if (user) {
+		return (
+			<>
 				<Box
 					sx={{
-						display: 'flex',
-						flexDirection: 'row',
+						marginLeft: 30,
 					}}
 				>
-					<ProfilImg />
-					<ProfilPseudo />
-					{/* <h1>Score</h1> */}
+					<Grid container rowSpacing={1} columnSpacing={{  }}>
+						<Grid xs={3}>
+							<ProfilImg />
+						</Grid>
+						<Grid xs={9}>
+							<ProfilPseudo />
+						</Grid>
+						<Grid xs={3}>
+							<ProfilFormImg />
+						</Grid>
+						<Grid xs={6}>
+							<ProfilFormMail />
+							<br />
+							<ProfilFormPWD />
+						</Grid>
+						<Grid xs={12}>
+						<ProfilScore/>
+						</Grid>
+						<Grid xs={12}>
+							Activités
+						</Grid>
+					</Grid>
 				</Box>
-				<Box
-					sx={{
-						display: 'flex',
-						flexDirection: 'row',
-					}}
-				>
-					<Container sx={{ width: 250, marginLeft: 0, margin: 0 }}>
-						<ProfilFormImg />
-					</Container>
-					<Container sx={{ width: 250, marginLeft: 0, margin: 0 }}>
-						{/* <Box sx={{ width: 250, height: 160 }}>
-							<h1>form mail</h1>
-							<h1>form mdp</h1>
-						</Box> */}
-					</Container>
-					{/* <h1>Activité</h1> */}
-				</Box>
-			</Box>
-		</>
-	);
+			</>
+		);
+	}
 };
 
 export default AccountPage;
