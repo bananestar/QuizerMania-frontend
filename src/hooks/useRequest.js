@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useRecoilState } from 'recoil';
-import { jwtAtom, userAtom } from '../atoms/jwtAtom';
+import { jwtAtom, userAtom, userIdAtom } from '../atoms/jwtAtom';
 
 const URL_LOGIN = import.meta.env.VITE_API_LOGIN;
 const URL_REGISTRATION = import.meta.env.VITE_API_REGISTER;
@@ -60,15 +60,14 @@ export const useRegister = (registers) => {
 export const useAccount = (userId) => {
 	const [isLoading, setLoading] = useState(true);
 	const [errors, setErrors] = useState();
-    const [user, setUser] = useRecoilState(userAtom);
+	const [user, setUser] = useRecoilState(userAtom);
 
 	useEffect(() => {
 		if (userId) {
 			axios
 				.get(URL_USER + userId)
 				.then(({ data }) => {
-					setUser(data.result)
-                    
+					setUser(data.result);
 				})
 				.catch((errors) => {
 					setErrors(errors);
@@ -79,4 +78,37 @@ export const useAccount = (userId) => {
 		}
 	}, [userId]);
 	return { isLoading, errors };
+};
+
+export const useUpdatedAccount = (file) => {
+	const [data, setData] = useState();
+	const [isLoading, setLoading] = useState(true);
+	const [errors, setErrors] = useState();
+
+	const [token, setToken] = useRecoilState(jwtAtom);
+	const [userId, setUserId] = useRecoilState(userIdAtom);
+	const url = URL_USER + 'updatedIMG/' + userId;
+
+	const formData = new FormData();
+	formData.append('avatar', file);
+
+	useEffect(() => {
+		if (formData.get('avatar')) {
+			axios
+				.post(url, formData, {
+					headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'multipart/form-data' },
+				})
+				.then(({ data }) => {
+					setData(data);
+				})
+				.catch((errors) => {
+					setErrors(errors);
+				})
+				.finally(() => {
+					setLoading(false);
+				});
+		}
+	}, [file]);
+
+	return { data, isLoading, errors };
 };

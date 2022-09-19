@@ -13,7 +13,6 @@ const AccountPage = () => {
 				sx={{
 					display: 'flex',
 					flexDirection: 'column',
-
 					marginLeft: 30,
 				}}
 			>
@@ -25,7 +24,7 @@ const AccountPage = () => {
 				>
 					<ProfilImg />
 					<ProfilPseudo />
-					<h1>Score</h1>
+					{/* <h1>Score</h1> */}
 				</Box>
 				<Box
 					sx={{
@@ -33,18 +32,16 @@ const AccountPage = () => {
 						flexDirection: 'row',
 					}}
 				>
-					<Container
-						sx={{ width: 250, border: 1, borderBlockColor: 'black', marginLeft: 0, margin: 0 }}
-					>
+					<Container sx={{ width: 250, marginLeft: 0, margin: 0 }}>
 						<ProfilFormImg />
 					</Container>
-					<Container
-						sx={{ width: 250, border: 1, borderBlockColor: 'black', marginLeft: 0, margin: 0 }}
-					>
-						<h1>form mail</h1>
-						<h1>form mdp</h1>
+					<Container sx={{ width: 250, marginLeft: 0, margin: 0 }}>
+						{/* <Box sx={{ width: 250, height: 160 }}>
+							<h1>form mail</h1>
+							<h1>form mdp</h1>
+						</Box> */}
 					</Container>
-					<h1>Activité</h1>
+					{/* <h1>Activité</h1> */}
 				</Box>
 			</Box>
 		</>

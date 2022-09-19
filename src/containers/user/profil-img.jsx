@@ -7,14 +7,13 @@ const ProfilImg = () => {
 	const [userId, setUserId] = useRecoilState(userIdAtom);
 	const { isLoading, errors } = useAccount(userId);
 	const [user, setUser] = useRecoilState(userAtom);
-	console.log(user);
 
 	if (isLoading) {
 		return <CircularProgress />;
 	}
 	return (
 		<>
-			<Box sx={{ width: 250, height: 160 ,border: 1, borderBlockColor: 'black' }} align="center" justifyContent={"center"}>
+			<Box  align="center" justifyContent={'center'} sx={{ width: 250, height: 160 }} >
 				<Avatar alt={user.pseudo} src={user.img} sx={{ width: 150, height: 150 }} />
 			</Box>
 		</>
