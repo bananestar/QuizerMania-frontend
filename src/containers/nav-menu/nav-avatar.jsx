@@ -1,9 +1,9 @@
-import { Avatar, Box, CircularProgress } from '@mui/material';
+import { Avatar, CircularProgress } from '@mui/material';
 import { useRecoilState } from 'recoil';
 import { userAtom, userIdAtom } from '../../atoms/jwtAtom';
 import { useAccount } from '../../hooks/useRequest';
 
-const ProfilImg = () => {
+const NavAvatar = () => {
 	const [userId, setUserId] = useRecoilState(userIdAtom);
 	const { isLoading, errors } = useAccount(userId);
 	const [user, setUser] = useRecoilState(userAtom);
@@ -11,13 +11,12 @@ const ProfilImg = () => {
 	if (isLoading) {
 		return <CircularProgress />;
 	}
+
 	return (
 		<>
-			<Box  align="center" justifyContent={'center'} sx={{ width: 250, height: 160 }} >
-				<Avatar alt={user.pseudo} src={user.img} sx={{ width: 150, height: 150 }} />
-			</Box>
+			<Avatar alt={user.pseudo} src={user.img} />
 		</>
 	);
 };
 
-export default ProfilImg;
+export default NavAvatar

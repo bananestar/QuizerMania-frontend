@@ -28,6 +28,7 @@ import { useRecoilState } from 'recoil';
 import { adminAtom, jwtAtom, userAtom, userIdAtom } from '../../atoms/jwtAtom';
 import { Avatar, CircularProgress } from '@mui/material';
 import { useAccount } from '../../hooks/useRequest';
+import NavAvatar from './nav-avatar';
 
 const drawerWidth = 240;
 
@@ -119,8 +120,6 @@ const NavMenu = () => {
 		navigate('/');
 	};
 
-	
-	
 	return (
 		<Box sx={{ display: 'flex' }}>
 			<CssBaseline />
@@ -237,10 +236,8 @@ const NavMenu = () => {
 											mr: open ? 3 : 'auto',
 											justifyContent: 'center',
 										}}
-									>
-										
-									</ListItemIcon>
-									<Avatar alt="user" src='' />
+									></ListItemIcon>
+									<NavAvatar />
 									<ListItemText primary="Account" sx={{ opacity: open ? 1 : 0 }} />
 								</ListItemButton>
 							</ListItem>
