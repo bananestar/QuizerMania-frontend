@@ -1,4 +1,4 @@
-import { Box, CircularProgress, Container, Grid } from '@mui/material';
+import { Box, CircularProgress, Container, Grid, Paper } from '@mui/material';
 import { useRecoilState } from 'recoil';
 import { userIdAtom } from '../../atoms/jwtAtom';
 import ProfilFormImg from '../../containers/user/profil-form-img';
@@ -8,6 +8,18 @@ import ProfilImg from '../../containers/user/profil-img';
 import ProfilPseudo from '../../containers/user/profil-Pseudo';
 import ProfilScore from '../../containers/user/profil-score';
 import { useAccount } from '../../hooks/useRequest';
+
+const classes = {
+	root: {
+		marginLeft: 30,
+		flexGrow: 1,
+	},
+	paper: {
+		padding: 20,
+		textAlign: 'center',
+		color: 'blue',
+	},
+};
 
 const AccountPage = () => {
 	const [userId, setUserId] = useRecoilState(userIdAtom);
@@ -32,27 +44,31 @@ const AccountPage = () => {
 				<Box
 					sx={{
 						marginLeft: 30,
+						flexGrow: 1,
+						width: 2/4, 
+						maxWidth: 600
 					}}
+					
 				>
-					<Grid container rowSpacing={1} columnSpacing={{  }}>
-						<Grid xs={3}>
+					<Grid container spacing={2} >
+						<Grid item xs={6}>
 							<ProfilImg />
 						</Grid>
-						<Grid xs={9}>
+						<Grid item xs={6}>
 							<ProfilPseudo />
 						</Grid>
-						<Grid xs={3}>
+						<Grid item xs={6}>
 							<ProfilFormImg />
 						</Grid>
-						<Grid xs={6}>
+						<Grid item xs={6}>
 							<ProfilFormMail />
 							<br />
 							<ProfilFormPWD />
 						</Grid>
-						<Grid xs={12}>
-						<ProfilScore/>
+						<Grid item xs={12}>
+							<ProfilScore />
 						</Grid>
-						<Grid xs={12}>
+						<Grid item xs={12}>
 							Activités
 						</Grid>
 					</Grid>
