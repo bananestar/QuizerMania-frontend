@@ -45,12 +45,11 @@ const AccountPage = () => {
 					sx={{
 						marginLeft: 30,
 						flexGrow: 1,
-						width: 2/4, 
-						maxWidth: 600
+						width: 2 / 4,
+						maxWidth: 600,
 					}}
-					
 				>
-					<Grid container spacing={2} >
+					<Grid container spacing={2}>
 						<Grid item xs={6}>
 							<ProfilImg />
 						</Grid>
@@ -67,9 +66,6 @@ const AccountPage = () => {
 						</Grid>
 						<Grid item xs={12}>
 							<ProfilScore />
-						</Grid>
-						<Grid item xs={12}>
-							Activités
 						</Grid>
 					</Grid>
 				</Box>

@@ -36,7 +36,6 @@ const ProfilScore = () => {
 	}
 	if (data) {
 		const scores = data.result;
-		console.log(scores);
 		return (
 			<>
 				<h3>Score <ScoreboardIcon/></h3>
