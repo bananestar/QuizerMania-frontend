@@ -219,25 +219,26 @@ const NavMenu = () => {
 							<ListItem
 								key="Account"
 								disablePadding
-								sx={{ display: 'block' }}
+								sx={{ display: 'block', color: 'inherit' }}
 								component={Link}
 								to="/account"
 							>
 								<ListItemButton
 									sx={{
-										minHeight: 48,
+										minWidth: 0,
 										justifyContent: open ? 'initial' : 'center',
 										px: 2.5,
 									}}
 								>
 									<ListItemIcon
 										sx={{
-											minWidth: 0,
+											maxWidth: 10,
 											mr: open ? 3 : 'auto',
 											justifyContent: 'center',
 										}}
-									></ListItemIcon>
-									<NavAvatar />
+									>
+										<NavAvatar />
+									</ListItemIcon>
 									<ListItemText primary="Account" sx={{ opacity: open ? 1 : 0 }} />
 								</ListItemButton>
 							</ListItem>
@@ -276,7 +277,7 @@ const NavMenu = () => {
 						disablePadding
 						sx={{ display: 'block', color: 'inherit' }}
 						component={Link}
-						to="/"
+						to="/quiz"
 					>
 						<ListItemButton
 							sx={{

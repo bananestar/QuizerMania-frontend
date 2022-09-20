@@ -7,6 +7,7 @@ import LoginPage from './pages/user/login';
 import { useJwtUser } from './hooks/useJwtUser';
 import RegistrationPage from './pages/user/registration';
 import AccountPage from './pages/user/account';
+import QuizPage from './pages/quiz/quiz';
 
 function App() {
 	useJwtUser();
@@ -17,6 +18,7 @@ function App() {
 				<Route path="/account" element={<AccountPage />} />
 				<Route path="/registration" element={<RegistrationPage />} />
 				<Route path="/login" element={<LoginPage />} />
+				<Route path="/quiz" element={<QuizPage />} />
 				<Route path="/*" element={<NotFound />} />
 			</Route>
 		</Routes>
