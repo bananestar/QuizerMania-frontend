@@ -7,6 +7,48 @@ const URL_LOGIN = import.meta.env.VITE_API_LOGIN;
 const URL_REGISTRATION = import.meta.env.VITE_API_REGISTER;
 const URL_USER = import.meta.env.VITE_API_USERS;
 
+export const useQuery = (url, id) => {
+	const [data, setData] = useState();
+	const [isLoading, setLoading] = useState(true);
+	const [errors, setErrors] = useState();
+
+	const [token, setToken] = useRecoilState(jwtAtom);
+
+	useEffect(() => {
+		if (id) {
+			axios
+				.get(url + id, {
+					headers: { Authorization: `Bearer ${token}` },
+				})
+				.then(({ data }) => {
+					setData(data);
+				})
+				.catch((errors) => {
+					setErrors(errors);
+				})
+				.finally(() => {
+					setLoading(false);
+				});
+		}else{
+			axios
+				.get(url, {
+					headers: { Authorization: `Bearer ${token}` },
+				})
+				.then(({ data }) => {
+					setData(data);
+				})
+				.catch((errors) => {
+					setErrors(errors);
+				})
+				.finally(() => {
+					setLoading(false);
+				});
+		}
+	}, [url]);
+
+	return { data, isLoading, errors };
+};
+
 export const useUpdated = (url, datas, id) => {
 	const [data, setData] = useState();
 	const [isLoading, setLoading] = useState(true);
@@ -17,8 +59,8 @@ export const useUpdated = (url, datas, id) => {
 	useEffect(() => {
 		if (datas) {
 			axios
-				.put(url+id, datas, {
-					headers: { Authorization: `Bearer ${token}`},
+				.put(url + id, datas, {
+					headers: { Authorization: `Bearer ${token}` },
 				})
 				.then(({ data }) => {
 					setData(data);
@@ -33,7 +75,7 @@ export const useUpdated = (url, datas, id) => {
 	}, [data]);
 
 	return { data, isLoading, errors };
-}
+};
 
 export const useLogin = (identifiers) => {
 	const [data, setData] = useState();
