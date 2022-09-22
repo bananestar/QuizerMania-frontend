@@ -1,4 +1,4 @@
-import { Avatar, Box } from '@mui/material';
+import { Avatar } from '@mui/material';
 import { useRecoilState } from 'recoil';
 import { userAtom } from '../../atoms/jwtAtom';
 

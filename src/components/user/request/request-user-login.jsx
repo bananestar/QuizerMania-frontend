@@ -1,29 +1,25 @@
 import { Alert, CircularProgress } from '@mui/material';
-import { useUpdatedAccount } from '../../../hooks/useRequest';
+import { useLogin } from '../../../hooks/useRequest';
 
-const RequestAvatar = ({ file }) => {
-	if (file) {
-		const { data, isLoading, errors } = useUpdatedAccount(file);
-
+const RequestUserLogin = ({ identifiers }) => {
+	if (identifiers) {
+		const { isLoading, errors } = useLogin(identifiers);
 		if (isLoading) {
 			return <CircularProgress />;
 		}
-
 		if (errors) {
 			console.error('-------------ERROR------------');
 			console.error(errors);
 			console.error('-------------ERROR------------');
 			return (
 				<Alert margin="dense" severity="error">
-					{errors}
+					ERROR Identifier and Password was wrong
 				</Alert>
 			);
 		}
-
-		if (data) {
-			window.location.reload();
-		}
-		return <></>;
 	}
+
+    return <></>
 };
-export default RequestAvatar;
+
+export default RequestUserLogin;

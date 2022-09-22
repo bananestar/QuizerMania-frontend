@@ -3,18 +3,16 @@ import { useRecoilState } from 'recoil';
 import { userAtom, userIdAtom } from '../../../atoms/jwtAtom';
 import { useUpdated } from '../../../hooks/useRequest';
 
-const RequestPWD = ({ newPassword }) => {
-	const URL_USER = import.meta.env.VITE_API_USERS+'UpdatedPwd/';
+const RequestUserMail = ({ mail }) => {
+	const URL_USER = import.meta.env.VITE_API_USERS;
 	const [user, setUser] = useRecoilState(userAtom);
-    const [userId, setUserId] = useRecoilState(userIdAtom);
+	const [userId, setUserId] = useRecoilState(userIdAtom);
 	console.log(user);
-	if (newPassword) {
-		console.log(newPassword);
+	if (mail) {
 		const datas = {
 			userID: user.userID,
-			password: newPassword,
+			email: mail,
 		};
-		console.log(datas);
 		const { data, isLoading, errors } = useUpdated(URL_USER, datas, userId);
 		if (isLoading) {
 			return <CircularProgress />;
@@ -29,9 +27,9 @@ const RequestPWD = ({ newPassword }) => {
 				</Alert>
 			);
 		}
-        if (data) {
-            window.location.reload();
-        }
+		if (data) {
+			window.location.reload();
+		}
 	}
 };
-export default RequestPWD;
+export default RequestUserMail;

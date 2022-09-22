@@ -7,7 +7,7 @@ import { userAtom } from '../../atoms/jwtAtom';
 import LockIcon from '@mui/icons-material/Lock';
 import LockOpenIcon from '@mui/icons-material/LockOpen';
 import SendIcon from '@mui/icons-material/Send';
-import RequestMail from '../../components/user/request/request-mail';
+import RequestUserMail from '../../components/user/request/request-user-mail';
 
 const ProfilFormMail = () => {
 	const [user, setUser] = useRecoilState(userAtom);
@@ -73,7 +73,7 @@ const ProfilFormMail = () => {
 					</IconButton>
 				</Container>
 			</form>
-			{send ? <RequestMail mail={mail} /> : ''}
+			{send ? <RequestUserMail mail={mail} /> : ''}
 		</Box>
 	);
 };

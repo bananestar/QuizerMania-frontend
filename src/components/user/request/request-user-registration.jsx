@@ -1,7 +1,7 @@
 import { Alert, CircularProgress } from "@mui/material";
 import { useRegister } from "../../../hooks/useRequest"
 
-const RequestRegistration = ({registers}) => {
+const RequestUserRegistration = ({registers}) => {
     if (registers) {
         const { isLoading, errors } = useRegister(registers)
         if (isLoading) {
@@ -21,4 +21,4 @@ const RequestRegistration = ({registers}) => {
     return <></>
 }
 
-export default RequestRegistration
+export default RequestUserRegistration

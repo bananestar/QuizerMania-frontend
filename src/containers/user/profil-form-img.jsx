@@ -1,6 +1,6 @@
 import { Box, Container } from '@mui/material';
 import { useState } from 'react';
-import RequestAvatar from '../../components/user/request/request-avatar';
+import RequestUserAvatar from '../../components/user/request/request-user-avatar';
 
 const ProfilFormImg = () => {
 	const [file, setFile] = useState();
@@ -24,7 +24,7 @@ const ProfilFormImg = () => {
 						<button type="submit">Upload File</button>
 					</Container>
 				</form>
-				{send ? <RequestAvatar file={file} /> : ''}
+				{send ? <RequestUserAvatar file={file} /> : ''}
 			</Box>
 		</>
 	);

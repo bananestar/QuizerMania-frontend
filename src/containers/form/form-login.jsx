@@ -6,7 +6,7 @@ import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { useRecoilState } from 'recoil';
 import { jwtAtom } from '../../atoms/jwtAtom';
-import RequestLogin from '../../components/user/request/request-login';
+import RequestUserLogin from '../../components/user/request/request-user-login';
 
 const FormLogin = () => {
 	const { handleSubmit, register } = useForm();
@@ -68,7 +68,7 @@ const FormLogin = () => {
 					</Container>
 
 					<Container align="center">
-						{identifiers ? <RequestLogin identifiers={identifiers} /> : ''}
+						{identifiers ? <RequestUserLogin identifiers={identifiers} /> : ''}
 					</Container>
 
 					<Container>

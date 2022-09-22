@@ -1,6 +1,5 @@
 import {
 	Alert,
-	Box,
 	CircularProgress,
 	Paper,
 	Table,

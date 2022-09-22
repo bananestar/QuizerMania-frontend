@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useRecoilState } from 'recoil';
 import { jwtAtom } from '../../atoms/jwtAtom';
-import RequestRegistration from '../../components/user/request/request-registration';
+import RequestUserRegistration from '../../components/user/request/request-user-registration';
 import { useNavigate } from 'react-router-dom';
 
 const FormRegistration = () => {
@@ -108,7 +108,7 @@ const FormRegistration = () => {
 					</Container>
 
 					<Container align="center">
-                        {registers ? <RequestRegistration registers={registers} /> : ''}
+                        {registers ? <RequestUserRegistration registers={registers} /> : ''}
                     </Container>
 
 					<Container align="center">

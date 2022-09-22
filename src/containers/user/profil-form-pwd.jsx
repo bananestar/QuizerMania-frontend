@@ -9,7 +9,7 @@ import bcrypt from 'bcryptjs';
 import LockIcon from '@mui/icons-material/Lock';
 import LockOpenIcon from '@mui/icons-material/LockOpen';
 import SendIcon from '@mui/icons-material/Send';
-import RequestPWD from '../../components/user/request/request-pwd';
+import RequestUserPWD from '../../components/user/request/request-user-pwd';
 
 const ProfilFormPWD = () => {
 	const [user, setUser] = useRecoilState(userAtom);
@@ -105,7 +105,7 @@ const ProfilFormPWD = () => {
 					</IconButton>
 				</Container>
 			</form>
-			{send ? <RequestPWD newPassword={newPassword} /> : ''}
+			{send ? <RequestUserPWD newPassword={newPassword} /> : ''}
 		</Box>
 	);
 };
