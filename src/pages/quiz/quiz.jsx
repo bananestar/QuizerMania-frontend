@@ -31,7 +31,7 @@ const QuizPage = () => {
 	}
 	if (data) {
 		const quiz = data.results;
-		console.log(quiz);
+		// console.log(quiz);
 
 		return (
 			<Box sx={{ marginLeft: 30, flexGrow: 1 }}>

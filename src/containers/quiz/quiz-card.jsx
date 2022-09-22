@@ -2,11 +2,10 @@ import { Card, CardContent, CardMedia, Typography } from '@mui/material';
 import { Link } from 'react-router-dom';
 
 const QuizCard = ({ quiz }) => {
-	// console.log(quiz);
 	return (
 		<Card
 			component={Link}
-			to="/"
+			to={"/quiz/"+quiz.quizID}
 		>
 			<CardMedia
 				component="img"

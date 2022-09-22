@@ -1,6 +1,6 @@
 import { Box, CircularProgress, Container, Grid, Paper } from '@mui/material';
 import { useRecoilState } from 'recoil';
-import { userIdAtom } from '../../atoms/jwtAtom';
+import { jwtAtom, userIdAtom } from '../../atoms/jwtAtom';
 import ProfilFormImg from '../../containers/user/profil-form-img';
 import ProfilFormMail from '../../containers/user/profil-form-mail';
 import ProfilFormPWD from '../../containers/user/profil-form-pwd';

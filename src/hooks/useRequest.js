@@ -6,6 +6,7 @@ import { jwtAtom, userAtom, userIdAtom } from '../atoms/jwtAtom';
 const URL_LOGIN = import.meta.env.VITE_API_LOGIN;
 const URL_REGISTRATION = import.meta.env.VITE_API_REGISTER;
 const URL_USER = import.meta.env.VITE_API_USERS;
+const URL_SCORE = import.meta.env.VITE_API_SCORE;
 
 export const useQuery = (url, id) => {
 	const [data, setData] = useState();
@@ -29,7 +30,7 @@ export const useQuery = (url, id) => {
 				.finally(() => {
 					setLoading(false);
 				});
-		}else{
+		} else {
 			axios
 				.get(url, {
 					headers: { Authorization: `Bearer ${token}` },
@@ -45,6 +46,31 @@ export const useQuery = (url, id) => {
 				});
 		}
 	}, [url]);
+
+	return { data, isLoading, errors };
+};
+
+export const useScoreAddUpdate = (datas) => {
+	const [data, setData] = useState();
+	const [isLoading, setLoading] = useState(true);
+	const [errors, setErrors] = useState();
+
+	const [token, setToken] = useRecoilState(jwtAtom);
+
+	useEffect(() => {
+		if (datas) {
+			axios.put(URL_SCORE+'addByUser',datas,{
+				headers: { Authorization: `Bearer ${token}` },
+			}).then(() => {
+				setData(true)
+			}).catch((errors) => {
+				setErrors(errors);
+			})
+			.finally(() => {
+				setLoading(false);
+			});
+		}
+	}, [datas]);
 
 	return { data, isLoading, errors };
 };
