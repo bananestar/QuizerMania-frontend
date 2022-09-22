@@ -1,12 +1,11 @@
-import { Card, CardContent, CardMedia, Typography } from '@mui/material';
+import { Button, Card, CardContent, CardMedia, Typography } from '@mui/material';
 import { Link } from 'react-router-dom';
+import HelpCenterIcon from '@mui/icons-material/HelpCenter';
+import ScoreboardIcon from '@mui/icons-material/Scoreboard';
 
 const QuizCard = ({ quiz }) => {
 	return (
-		<Card
-			component={Link}
-			to={"/quiz/"+quiz.quizID}
-		>
+		<Card>
 			<CardMedia
 				component="img"
 				alt="quiz img"
@@ -17,6 +16,14 @@ const QuizCard = ({ quiz }) => {
 				<Typography sx={{ fontSize: 18 }} variant="h5" component="div" gutterBottom>
 					{quiz.name}
 				</Typography>
+				<Button component={Link} to={'/score/'+ quiz.quizID}>
+					<ScoreboardIcon sx={{color:'#cc0000'}} />
+					Score
+				</Button>
+				<Button component={Link} to={'/quiz/' + quiz.quizID}>
+					<HelpCenterIcon sx={{color:'#FFA500', }}/>
+					Questionnaire
+				</Button>
 			</CardContent>
 		</Card>
 	);
