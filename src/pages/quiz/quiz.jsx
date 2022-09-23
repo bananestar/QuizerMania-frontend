@@ -49,7 +49,7 @@ const QuizPage = () => {
 					>
 						<Card
 							component={Link}
-							to="/"
+							to="/quiz/add"
 						>
 							<CardMedia component="img" alt="quiz img" height="200" image="" />
 							<CardContent>

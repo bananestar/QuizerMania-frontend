@@ -11,6 +11,7 @@ import QuizPage from './pages/quiz/quiz';
 import QuestionnairePage from './pages/quiz/questionnaire';
 import ScorePage from './pages/score/score';
 import ScoreByQuiz from './pages/score/scoreByQuiz';
+import QuizAddPage from './pages/quiz/quizAdd';
 
 function App() {
 	useJwtUser();
@@ -22,6 +23,7 @@ function App() {
 				<Route path="/registration" element={<RegistrationPage />} />
 				<Route path="/login" element={<LoginPage />} />
 				<Route path="/quiz" element={<QuizPage />} />
+				<Route path="/quiz/add" element={<QuizAddPage />} />
 				<Route path="/quiz/:quizID" element={<QuestionnairePage />} />
 				<Route path="/score" element={<ScorePage />} />
 				<Route path="/score/:quizID" element={<ScoreByQuiz />} />

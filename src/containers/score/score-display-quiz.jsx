@@ -7,7 +7,7 @@ import {
 	TableHead,
 	TableRow,
 } from '@mui/material';
-import { sortBy, reverse } from 'lodash';
+import { sortBy } from 'lodash';
 
 const ScoreDisplayQuiz = ({ data }) => {
 	const score = data.result.map((e) => {
