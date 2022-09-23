@@ -79,7 +79,7 @@ const FormLogin = () => {
 							size="small"
 							variant="filled"
 							helperText={errorMessageIdentifier}
-							error={errorMessageIdentifier}
+							error={errorMessageIdentifier.length > 0}
 							{...register('identifier')}
 							onChange={({ target }) => setIdentifier(target.value)}
 							autoComplete="field1"
@@ -95,7 +95,7 @@ const FormLogin = () => {
 							variant="filled"
 							type="password"
 							helperText={errorMessagePassword}
-							error={errorMessagePassword}
+							error={errorMessagePassword.length > 0}
 							{...register('currentPassword')}
 							onChange={({ target }) => setCurrentPassword(target.value)}
 							autoComplete="new-password"

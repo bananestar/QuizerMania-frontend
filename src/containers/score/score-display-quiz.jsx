@@ -21,8 +21,6 @@ const ScoreDisplayQuiz = ({ data }) => {
 		};
 	});
 
-	console.log(score);
-
 	return (
 		<>
 			<TableContainer component={Paper}>

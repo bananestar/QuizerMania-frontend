@@ -119,7 +119,7 @@ const FormRegistration = () => {
 							size="small"
 							variant="filled"
 							helperText={errorMessagePseudo}
-							error={errorMessagePseudo}
+							error={errorMessagePseudo.length > 0}
 							{...register('pseudo')}
 							onChange={({ target }) => setPseudo(target.value)}
 							autoComplete="field1"
@@ -135,7 +135,7 @@ const FormRegistration = () => {
 							variant="filled"
 							type="mail"
 							helperText={errorMessageMail}
-							error={errorMessageMail}
+							error={errorMessageMail.length > 0}
 							{...register('mail')}
 							onChange={({ target }) => setMail(target.value)}
 							autoComplete="field2"
@@ -151,7 +151,7 @@ const FormRegistration = () => {
 							variant="filled"
 							type="password"
 							helperText={errorMessagePassword}
-							error={errorMessagePassword}
+							error={errorMessagePassword.length > 0}
 							{...register('currentPassword')}
 							onChange={({ target }) => setCurrentPassword(target.value)}
 							autoComplete="new-password"
@@ -167,7 +167,7 @@ const FormRegistration = () => {
 							variant="filled"
 							type="password"
 							helperText={errorMessagePasswordVerif}
-							error={errorMessagePasswordVerif}
+							error={errorMessagePasswordVerif.length > 0}
 							{...register('currentPasswordVerif')}
 							onChange={({ target }) => setCurrentPasswordVerif(target.value)}
 							autoComplete="new-password"
