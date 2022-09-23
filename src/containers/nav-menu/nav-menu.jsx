@@ -19,6 +19,7 @@ import LoginIcon from '@mui/icons-material/Login';
 import CreateIcon from '@mui/icons-material/Create';
 import LensBlurIcon from '@mui/icons-material/LensBlur';
 import LogoutIcon from '@mui/icons-material/Logout';
+import ScoreboardIcon from '@mui/icons-material/Scoreboard';
 import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
@@ -26,8 +27,6 @@ import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { useRecoilState } from 'recoil';
 import { adminAtom, jwtAtom, userAtom, userIdAtom } from '../../atoms/jwtAtom';
-import { Avatar, CircularProgress } from '@mui/material';
-import { useAccount } from '../../hooks/useRequest';
 import NavAvatar from './nav-avatar';
 
 const drawerWidth = 240;
@@ -296,6 +295,32 @@ const NavMenu = () => {
 								<LensBlurIcon />
 							</ListItemIcon>
 							<ListItemText primary="quiz" sx={{ opacity: open ? 1 : 0 }} />
+						</ListItemButton>
+					</ListItem>
+					<ListItem
+						key="score"
+						disablePadding
+						sx={{ display: 'block', color: 'inherit' }}
+						component={Link}
+						to="/score"
+					>
+						<ListItemButton
+							sx={{
+								minHeight: 48,
+								justifyContent: open ? 'initial' : 'center',
+								px: 2.5,
+							}}
+						>
+							<ListItemIcon
+								sx={{
+									minWidth: 0,
+									mr: open ? 3 : 'auto',
+									justifyContent: 'center',
+								}}
+							>
+								<ScoreboardIcon />
+							</ListItemIcon>
+							<ListItemText primary="score" sx={{ opacity: open ? 1 : 0 }} />
 						</ListItemButton>
 					</ListItem>
 				</List>
