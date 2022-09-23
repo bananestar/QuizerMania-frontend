@@ -2,7 +2,6 @@ import { Card, CardActionArea, CardContent, CardMedia, Typography } from '@mui/m
 import { Link } from 'react-router-dom';
 
 const ScoreCard = ({ quiz }) => {
-	console.log(quiz);
 	return (
 		<Card sx={{ maxWidth: 345 }}>
 			<CardActionArea component={Link} to={'/score/'+ quiz.quizID}>
