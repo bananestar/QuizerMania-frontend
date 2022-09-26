@@ -1,9 +1,8 @@
-import { Alert, CircularProgress } from '@mui/material';
-import { useState } from 'react';
+import { Alert, CircularProgress, Select } from '@mui/material';
+import QuizFormTheme from '../../../containers/quiz/quiz-form-theme';
 import { useQuery } from '../../../hooks/useRequest';
 
-const RequestQuizTheme = ({ theme }) => {
-	const [themeSelected, setThemeSelected] = useState();
+const RequestQuizTheme = ({ themeID, theme, lock }) => {
 	const url = import.meta.env.VITE_API_THEME;
 
 	const { data, isLoading, errors } = useQuery(url);
@@ -24,7 +23,8 @@ const RequestQuizTheme = ({ theme }) => {
 	}
 
 	if (data) {
-		theme(data.results);
+		const themes = data.results;
+		return <QuizFormTheme themes={themes} themeID={themeID} theme={(e)=>theme(e)} lock={lock} />;
 	}
 };
 
