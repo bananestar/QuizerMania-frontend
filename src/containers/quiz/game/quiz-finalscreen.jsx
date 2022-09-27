@@ -1,9 +1,9 @@
 import { Button, Typography } from '@mui/material';
 import SaveIcon from '@mui/icons-material/Save';
 import { useState } from 'react';
-import RequestScoreAdd from '../../components/score/request/request-score-add';
+import RequestScoreAdd from '../../../components/score/request/request-score-add';
 import { useRecoilState } from 'recoil';
-import { userIdAtom } from '../../atoms/jwtAtom';
+import { userIdAtom } from '../../../atoms/jwtAtom';
 
 const QuizFinalScreen = ({ quiz, score }) => {
 	console.log(quiz);

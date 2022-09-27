@@ -1,5 +1,5 @@
 import { Alert, CircularProgress, Select } from '@mui/material';
-import QuizFormTheme from '../../../containers/quiz/quiz-form-theme';
+import QuizFormTheme from '../../../containers/quiz/add/quiz-form-theme';
 import { useQuery } from '../../../hooks/useRequest';
 
 const RequestQuizTheme = ({ themeID, theme, lock }) => {

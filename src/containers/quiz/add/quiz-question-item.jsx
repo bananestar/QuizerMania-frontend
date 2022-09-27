@@ -4,7 +4,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { Container } from '@mui/system';
 import { useState } from 'react';
-import RequestQuizTheme from '../../components/quiz/request/request-quiz-theme';
+import RequestQuizTheme from '../../../components/quiz/request/request-quiz-theme';
 
 const QuizQuestionItem = ({ question, updated, deleted }) => {
 	const [libelleQ, setLibelleQ] = useState(question.libelle);

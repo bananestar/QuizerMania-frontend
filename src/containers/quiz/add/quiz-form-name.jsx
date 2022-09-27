@@ -1,7 +1,7 @@
 import { TextField } from '@mui/material';
 import { useEffect, useState } from 'react';
 
-const QuizForm = ({ quizName, error }) => {
+const QuizFormName = ({ quizName, error }) => {
 	const [quiz, setQuiz] = useState(' ');
 	const [errorMessageQuiz, setErrorMessageQuiz] = useState('');
 
@@ -32,4 +32,4 @@ const QuizForm = ({ quizName, error }) => {
 		</>
 	);
 };
-export default QuizForm;
+export default QuizFormName;

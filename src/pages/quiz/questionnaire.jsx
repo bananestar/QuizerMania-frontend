@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useRecoilState } from 'recoil';
 import { jwtAtom } from '../../atoms/jwtAtom';
-import QuizCardQuestion from '../../containers/quiz/quiz-card-question';
+import QuizCardQuestion from '../../containers/quiz/game/quiz-card-question';
 import { useQuery } from '../../hooks/useRequest';
 
 const QuestionnairePage = () => {

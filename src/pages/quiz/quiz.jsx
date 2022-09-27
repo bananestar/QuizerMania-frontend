@@ -9,7 +9,7 @@ import {
 } from '@mui/material';
 import { Box } from '@mui/system';
 import { Link } from 'react-router-dom';
-import QuizCard from '../../containers/quiz/quiz-card';
+import QuizCard from '../../containers/quiz/game/quiz-card';
 import { useQuery } from '../../hooks/useRequest';
 
 const QuizPage = () => {
