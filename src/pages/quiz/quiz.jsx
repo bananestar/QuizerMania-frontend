@@ -40,7 +40,7 @@ const QuizPage = () => {
 
 		return (
 			<Box sx={{ marginLeft: 30, flexGrow: 1 }}>
-				<Grid container spacing={3}>
+				<Grid container>
 					<Grid
 						item
 						sx={{
