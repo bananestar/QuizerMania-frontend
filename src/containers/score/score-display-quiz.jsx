@@ -21,6 +21,10 @@ const ScoreDisplayQuiz = ({ data }) => {
 		};
 	});
 
+	if (score.length === 0) {
+		return <h1>No score for the moment</h1>
+	}
+
 	return (
 		<>
 			<TableContainer component={Paper}>
@@ -29,9 +33,9 @@ const ScoreDisplayQuiz = ({ data }) => {
 						<TableRow>
 							<TableCell>Position</TableCell>
 							<TableCell>Player</TableCell>
-							<TableCell>score</TableCell>
-							<TableCell>createdAt</TableCell>
-							<TableCell>updatedAt</TableCell>
+							<TableCell>Score</TableCell>
+							<TableCell>Created At</TableCell>
+							<TableCell>Updated At</TableCell>
 						</TableRow>
 					</TableHead>
 					<TableBody>
