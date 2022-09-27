@@ -1,12 +1,11 @@
 import { Button, Typography } from '@mui/material';
 import SaveIcon from '@mui/icons-material/Save';
 import { useState } from 'react';
-import RequestScoreAdd from '../../../components/score/request/request-score-add';
 import { useRecoilState } from 'recoil';
 import { userIdAtom } from '../../../atoms/jwtAtom';
+import RequestScoreByUser from '../../../components/score/request/request-score-byUser';
 
 const QuizFinalScreen = ({ quiz, score }) => {
-	console.log(quiz);
     const [send, setSend] = useState(false)
     const [data, setData] = useState()
     const [userId, setUserId] = useRecoilState(userIdAtom);
@@ -32,7 +31,7 @@ const QuizFinalScreen = ({ quiz, score }) => {
             <br />
 			<Button variant="contained" color='success' onClick={handleClickSave}> <SaveIcon/> &nbsp; Sauvegarder votre score</Button>
             <br />
-            {send ? <RequestScoreAdd dt={data} /> : ''}
+            {send ? <RequestScoreByUser dt={data} /> : ''}
 		</>
 	);
 };
