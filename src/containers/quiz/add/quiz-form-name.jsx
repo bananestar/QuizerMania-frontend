@@ -7,7 +7,7 @@ const QuizFormName = ({ quizName, error }) => {
 
 	useEffect(() => {
 		if (quiz.length <= 0) {
-			setErrorMessageQuiz('quiz name is empty');
+			setErrorMessageQuiz('the field is empty');
 			error(true);
 		}
 		if (quiz.length > 0) {
@@ -19,10 +19,10 @@ const QuizFormName = ({ quizName, error }) => {
 
 	return (
 		<>
-			<h1>Création d'un Quiz</h1>
+			<h1>Creation of a Quiz</h1>
 			<TextField
 				id="field1"
-				label="Nom du quiz"
+				label="Quiz name"
 				margin="dense"
 				variant="filled"
 				helperText={errorMessageQuiz}

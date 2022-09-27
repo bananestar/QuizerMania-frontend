@@ -1,4 +1,5 @@
 import {
+	Box,
 	Button,
 	IconButton,
 	Paper,
@@ -10,44 +11,43 @@ import {
 	TableRow,
 } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
-import { Container } from '@mui/system';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import QuizQuestionList from './quiz-question-list';
 
 const questionItem = {
 	questionID: 1,
-	libelle: 'votre question ?',
+	libelle: 'Your question ?',
 	themeID: 1,
 	reponses: [
 		{
 			reponseID: 1,
 			isValid: true,
-			libelle: 'proposition 1',
+			libelle: 'Proposal 1',
 			questionID: 1,
 		},
 		{
 			reponseID: 2,
 			isValid: false,
-			libelle: 'proposition 2',
+			libelle: 'Proposal 2',
 			questionID: 1,
 		},
 		{
 			reponseID: 3,
 			isValid: false,
-			libelle: 'proposition 3',
+			libelle: 'Proposal 3',
 			questionID: 1,
 		},
 		{
 			reponseID: 4,
 			isValid: false,
-			libelle: 'proposition 4',
+			libelle: 'Proposal 4',
 			questionID: 1,
 		},
 	],
 };
 
-const QuizTableQuestion = () => {
+const QuizTableQuestion = ({ save }) => {
 	const [questions, setQuestions] = useState([questionItem]);
 
 	const handleUpdate = (e) => {
@@ -108,9 +108,9 @@ const QuizTableQuestion = () => {
 		setQuestions(questions.filter((item) => item.questionID !== e));
 	};
 
-	// useEffect(() => {
-	// 	console.log(questions);
-	// }, [questions]);
+	useEffect(() => {
+		save(questions);
+	}, [questions]);
 
 	return (
 		<>
@@ -131,12 +131,11 @@ const QuizTableQuestion = () => {
 						/>
 					</TableBody>
 				</Table>
-				<Container>
+				<Box sx={{p:2}}>
 					<Button endIcon={<AddIcon />} variant="contained" onClick={handleAddQuestion}>
 						Add
 					</Button>
-				</Container>
-				<br />
+				</Box>
 			</TableContainer>
 		</>
 	);

@@ -50,7 +50,7 @@ export const useQuery = (url, id) => {
 	return { data, isLoading, errors };
 };
 
-export const useScoreAddUpdate = (datas) => {
+export const useAdd = (url, dt) => {
 	const [data, setData] = useState();
 	const [isLoading, setLoading] = useState(true);
 	const [errors, setErrors] = useState();
@@ -58,19 +58,22 @@ export const useScoreAddUpdate = (datas) => {
 	const [token, setToken] = useRecoilState(jwtAtom);
 
 	useEffect(() => {
-		if (datas) {
-			axios.put(URL_SCORE+'addByUser',datas,{
-				headers: { Authorization: `Bearer ${token}` },
-			}).then(() => {
-				setData(true)
-			}).catch((errors) => {
-				setErrors(errors);
-			})
-			.finally(() => {
-				setLoading(false);
-			});
+		if (dt) {
+			axios
+				.post(url, dt, {
+					headers: { Authorization: `Bearer ${token}` },
+				})
+				.then(({ data }) => {
+					setData(data);
+				})
+				.catch((errors) => {
+					setErrors(errors);
+				})
+				.finally(() => {
+					setLoading(false);
+				});
 		}
-	}, [datas]);
+	}, [dt]);
 
 	return { data, isLoading, errors };
 };
@@ -103,6 +106,33 @@ export const useUpdated = (url, datas, id) => {
 	return { data, isLoading, errors };
 };
 
+export const useScoreAddUpdate = (datas) => {
+	const [data, setData] = useState();
+	const [isLoading, setLoading] = useState(true);
+	const [errors, setErrors] = useState();
+
+	const [token, setToken] = useRecoilState(jwtAtom);
+
+	useEffect(() => {
+		if (datas) {
+			axios
+				.put(URL_SCORE + 'addByUser', datas, {
+					headers: { Authorization: `Bearer ${token}` },
+				})
+				.then(() => {
+					setData(true);
+				})
+				.catch((errors) => {
+					setErrors(errors);
+				})
+				.finally(() => {
+					setLoading(false);
+				});
+		}
+	}, [datas]);
+
+	return { data, isLoading, errors };
+};
 export const useLogin = (identifiers) => {
 	const [data, setData] = useState();
 	const [isLoading, setLoading] = useState(true);

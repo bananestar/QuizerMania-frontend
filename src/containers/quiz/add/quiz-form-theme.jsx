@@ -23,6 +23,7 @@ const QuizFormTheme = ({ themes, themeID, theme, lock }) => {
 	useEffect(() => {
 		theme(themeSelected);
 	}, [themeSelected]);
+
 	return (
 		<>
 			<FormControl sx={{ width: 200 }}>

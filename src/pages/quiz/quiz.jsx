@@ -8,11 +8,12 @@ import {
 	Typography,
 } from '@mui/material';
 import { Box } from '@mui/system';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import QuizCard from '../../containers/quiz/game/quiz-card';
 import { useQuery } from '../../hooks/useRequest';
 
 const QuizPage = () => {
+	const navigate = useNavigate();
 	const URL = import.meta.env.VITE_API_QUIZ;
 	const { data, isLoading, errors } = useQuery(URL);
 
@@ -32,6 +33,10 @@ const QuizPage = () => {
 	if (data) {
 		const quiz = data.results;
 		// console.log(quiz);
+
+		if (quiz === undefined) {
+			navigate('/404');
+		}
 
 		return (
 			<Box sx={{ marginLeft: 30, flexGrow: 1 }}>
