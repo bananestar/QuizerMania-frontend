@@ -1,0 +1,12 @@
+.baseMain {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.baseContent {
+    flex-grow: 1;
+    // margin-left: 240px;
+    margin-top: 50px;
+    padding: 20px;
+}

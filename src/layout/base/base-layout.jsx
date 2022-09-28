@@ -1,8 +1,8 @@
 import { Outlet } from 'react-router-dom';
 import style from './layout.module.scss';
-import Footer from '../containers/footer/footer';
-import Header from '../containers/header/header';
-import NavMenu from '../containers/nav-menu/nav-menu';
+import Footer from '../../containers/footer/footer';
+import Header from '../../containers/header/header';
+import NavMenu from '../../containers/nav-menu/nav-menu';
 
 const BaseLayout = () => (
 	<div className={style.baseMain}>
