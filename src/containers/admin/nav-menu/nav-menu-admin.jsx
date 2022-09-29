@@ -1,6 +1,7 @@
 import {
 	AppBar,
 	Box,
+	Button,
 	CssBaseline,
 	Grid,
 	List,
@@ -31,50 +32,94 @@ const AdminNavMenu = () => {
 				<CssBaseline />
 				<AppBar position="fixed">
 					<Toolbar disableGutters>
-						<Grid container>
-							<Grid item>
-								<Stack direction="row" spacing={2} sx={{ px: 2.5 }}>
-									<Typography
+						<Grid container direction="row" sx={{ px: 2.5 }}>
+							<Grid item sx={{ flexGrow: '1' }}>
+								<Stack direction="row" spacing={2}>
+									<Button
 										component={NavLink}
 										to="/admin"
-										style={{ textDecoration: 'none', color: 'red' }}
+										variant="outlined"
+										sx={{
+											color: 'red',
+											borderColor: 'red',
+											'&:hover': {
+												borderColor: 'darkred',
+												backgroundColor: 'darkred',
+												color: 'black',
+											},
+										}}
 									>
 										Mode Admin
-									</Typography>
-									<Typography
+									</Button>
+									<Button
 										component={NavLink}
 										to="user-panel"
-										style={{ textDecoration: 'none', color: 'inherit' }}
+										variant="outlined"
+										sx={{
+											color: 'white',
+											borderColor: 'gray',
+											'&:hover': {
+												borderColor: 'white',
+												backgroundColor: '#eeeeee',
+												color: 'black',
+											},
+										}}
 									>
 										User Panel
-									</Typography>
-									<Typography
+									</Button>
+									<Button
 										component={NavLink}
 										to="quiz-panel"
-										style={{ textDecoration: 'none', color: 'inherit' }}
+										variant="outlined"
+										sx={{
+											color: 'white',
+											borderColor: 'gray',
+											'&:hover': {
+												borderColor: 'white',
+												backgroundColor: '#eeeeee',
+												color: 'black',
+											},
+										}}
 									>
 										Quiz Panel
-									</Typography>
-									<Typography
+									</Button>
+									<Button
 										component={NavLink}
 										to="score-panel"
-										style={{ textDecoration: 'none', color: 'inherit' }}
+										variant="outlined"
+										sx={{
+											color: 'white',
+											borderColor: 'gray',
+											'&:hover': {
+												borderColor: 'white',
+												backgroundColor: '#eeeeee',
+												color: 'black',
+											},
+										}}
 									>
 										Score Panel
-									</Typography>
+									</Button>
 								</Stack>
 							</Grid>
+							<Grid item xs={1}>
+								<Button
+									component={NavLink}
+									to="/"
+									variant="outlined"
+									sx={{
+										color: 'green',
+										borderColor: 'green',
+										'&:hover': {
+											borderColor: 'darkgreen',
+											backgroundColor: 'green',
+											color: 'black',
+										},
+									}}
+								>
+									Return On site
+								</Button>
+							</Grid>
 						</Grid>
-
-						<Stack direction="row" spacing={2} sx={{ px: 2.5 }} justifyContent="end">
-							<Typography
-								component={NavLink}
-								to="/"
-								style={{ textDecoration: 'none', color: 'inherit' }}
-							>
-								Return On Site
-							</Typography>
-						</Stack>
 					</Toolbar>
 				</AppBar>
 			</Box>
