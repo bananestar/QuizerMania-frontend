@@ -17,10 +17,13 @@ import BaseLayout from './layout/base/base-layout';
 import AdminUserPanel from './pages/admin/user-panel';
 import AdminScorePanel from './pages/admin/score-panel';
 import AdminQuizPanel from './pages/admin/quiz-panel';
+import { CssBaseline } from '@mui/material';
 
 function App() {
 	useJwtUser();
 	return (
+		<>
+		<CssBaseline />
 		<Routes>
 			<Route path="/">
 				<Route path="" element={<BaseLayout />}>
@@ -43,6 +46,7 @@ function App() {
 				</Route>
 			</Route>
 		</Routes>
+		</>
 	);
 }
 

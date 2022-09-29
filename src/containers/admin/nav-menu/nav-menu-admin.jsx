@@ -28,8 +28,8 @@ const darkTheme = createTheme({
 const AdminNavMenu = () => {
 	return (
 		<ThemeProvider theme={darkTheme}>
+			<CssBaseline />
 			<Box sx={{ display: 'flex' }}>
-				<CssBaseline />
 				<AppBar position="fixed">
 					<Toolbar disableGutters>
 						<Grid container direction="row" sx={{ px: 2.5 }}>

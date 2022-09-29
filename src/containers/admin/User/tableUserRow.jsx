@@ -4,14 +4,16 @@ import PersonIcon from '@mui/icons-material/Person';
 import SearchIcon from '@mui/icons-material/Search';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
+import PopupInfoUser from '../../../components/admin/popup-info-user';
+import { useState } from 'react';
 
 const TableUserRow = ({ data }) => {
-	console.log(data);
+	const [popupInfo, setPopupInfo] = useState(false);
 	return (
-		<TableRow key={data[0].userID} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
+		<TableRow key={data[0].userID}>
 			<TableCell> {data[0].userID} </TableCell>
 			<TableCell>
-				<Avatar alt={data[0].pseudo+'_avatar'} src={data[0].img} />
+				<Avatar alt={data[0].pseudo + '_avatar'} src={data[0].img} />
 			</TableCell>
 			<TableCell> {data[0].pseudo} </TableCell>
 			<TableCell>
@@ -20,7 +22,7 @@ const TableUserRow = ({ data }) => {
 			<TableCell>{new Date(data[0].createdAt).toLocaleDateString('fr-FR')}</TableCell>
 			<TableCell>{new Date(data[0].updatedAt).toLocaleDateString('fr-FR')}</TableCell>
 			<TableCell>
-				<IconButton>
+				<IconButton onClick={() => {setPopupInfo(true)}}>
 					<SearchIcon />
 				</IconButton>
 				<IconButton>
@@ -30,6 +32,8 @@ const TableUserRow = ({ data }) => {
 					<DeleteForeverIcon />
 				</IconButton>
 			</TableCell>
+			{popupInfo ? <PopupInfoUser data={data} popup={(e)=>setPopupInfo(e)} /> : ''}
+			
 		</TableRow>
 	);
 };

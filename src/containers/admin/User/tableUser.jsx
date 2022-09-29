@@ -1,6 +1,5 @@
 import {
 	createTheme,
-	CssBaseline,
 	InputAdornment,
 	Paper,
 	Table,
@@ -55,7 +54,7 @@ const TableUser = ({ users }) => {
 
 	return (
 		<ThemeProvider theme={darkTheme}>
-			<CssBaseline />
+			
 			<TextField
 				InputProps={{
 					startAdornment: (
@@ -84,9 +83,9 @@ const TableUser = ({ users }) => {
 						</TableRow>
 					</TableHead>
 					<TableBody>
-						{allUser.map(({ userID, img, pseudo, isAdmin, createdAt, updatedAt }) => {
+						{allUser.map((user) => {
 							return (
-								<TableUserRow data={[{ userID, img, pseudo, isAdmin, createdAt, updatedAt }]} />
+								<TableUserRow data={[user]} />
 							);
 						})}
 					</TableBody>
