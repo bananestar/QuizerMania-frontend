@@ -208,14 +208,17 @@ export const useAccount = (userId) => {
 	return { user, isLoading, errors };
 };
 
-export const useUpdatedAccount = (file) => {
+export const useUpdatedAccount = (file,userID) => {
 	const [data, setData] = useState();
 	const [isLoading, setLoading] = useState(true);
 	const [errors, setErrors] = useState();
 
 	const [token, setToken] = useRecoilState(jwtAtom);
-	const [userId, setUserId] = useRecoilState(userIdAtom);
-	const url = URL_USER + 'updatedIMG/' + userId;
+
+	if (!userID) {
+		const [userId, setUserId] = useRecoilState(userIdAtom);
+	}
+	const url = URL_USER + 'updatedIMG/' + userID;
 
 	const formData = new FormData();
 	formData.append('avatar', file);

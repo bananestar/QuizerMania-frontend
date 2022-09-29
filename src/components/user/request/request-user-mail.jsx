@@ -7,12 +7,13 @@ const RequestUserMail = ({ mail }) => {
 	const URL_USER = import.meta.env.VITE_API_USERS;
 	const [user, setUser] = useRecoilState(userAtom);
 	const [userId, setUserId] = useRecoilState(userIdAtom);
-	console.log(user);
+
 	if (mail) {
 		const datas = {
 			userID: user.userID,
 			email: mail,
 		};
+		
 		const { data, isLoading, errors } = useUpdated(URL_USER, datas, userId);
 		if (isLoading) {
 			return <CircularProgress />;
