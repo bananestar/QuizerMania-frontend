@@ -21,7 +21,6 @@ import LensBlurIcon from '@mui/icons-material/LensBlur';
 import LogoutIcon from '@mui/icons-material/Logout';
 import ScoreboardIcon from '@mui/icons-material/Scoreboard';
 import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
@@ -267,6 +266,41 @@ const NavMenu = () => {
 								</ListItemButton>
 							</ListItem>
 						</List>
+						{isAdmin ? (
+							<>
+								<Divider />
+								<List>
+									<ListItem
+										key="admin"
+										disablePadding
+										sx={{ display: 'block', color: 'inherit' }}
+										component={Link}
+										to="/admin"
+									>
+										<ListItemButton
+											sx={{
+												minHeight: 48,
+												justifyContent: open ? 'initial' : 'center',
+												px: 2.5,
+											}}
+										>
+											<ListItemIcon
+												sx={{
+													minWidth: 0,
+													mr: open ? 3 : 'auto',
+													justifyContent: 'center',
+												}}
+											>
+												<AdminPanelSettingsIcon sx={{ color: 'red' }} />
+											</ListItemIcon>
+											<ListItemText primary="quiz" sx={{ opacity: open ? 1 : 0 }} />
+										</ListItemButton>
+									</ListItem>
+								</List>
+							</>
+						) : (
+							''
+						)}
 					</>
 				)}
 				<Divider />

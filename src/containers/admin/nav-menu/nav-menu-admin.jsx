@@ -2,6 +2,7 @@ import {
 	AppBar,
 	Box,
 	CssBaseline,
+	Grid,
 	List,
 	ListItem,
 	ListItemText,
@@ -30,34 +31,48 @@ const AdminNavMenu = () => {
 				<CssBaseline />
 				<AppBar position="fixed">
 					<Toolbar disableGutters>
-						<Stack direction="row" spacing={2} sx={{px: 2.5}} >
+						<Grid container>
+							<Grid item>
+								<Stack direction="row" spacing={2} sx={{ px: 2.5 }}>
+									<Typography
+										component={NavLink}
+										to="/admin"
+										style={{ textDecoration: 'none', color: 'red' }}
+									>
+										Mode Admin
+									</Typography>
+									<Typography
+										component={NavLink}
+										to="user-panel"
+										style={{ textDecoration: 'none', color: 'inherit' }}
+									>
+										User Panel
+									</Typography>
+									<Typography
+										component={NavLink}
+										to="quiz-panel"
+										style={{ textDecoration: 'none', color: 'inherit' }}
+									>
+										Quiz Panel
+									</Typography>
+									<Typography
+										component={NavLink}
+										to="score-panel"
+										style={{ textDecoration: 'none', color: 'inherit' }}
+									>
+										Score Panel
+									</Typography>
+								</Stack>
+							</Grid>
+						</Grid>
+
+						<Stack direction="row" spacing={2} sx={{ px: 2.5 }} justifyContent="end">
 							<Typography
 								component={NavLink}
-								to="/admin"
-								style={{ textDecoration: 'none', color: 'red'}}
-							>
-								Mode Admin
-							</Typography>
-							<Typography
-								component={NavLink}
-								to="user-panel"
+								to="/"
 								style={{ textDecoration: 'none', color: 'inherit' }}
 							>
-								User Panel
-							</Typography>
-							<Typography
-								component={NavLink}
-								to="quiz-panel"
-								style={{ textDecoration: 'none', color: 'inherit' }}
-							>
-								Quiz Panel
-							</Typography>
-							<Typography
-								component={NavLink}
-								to="score-panel"
-								style={{ textDecoration: 'none', color: 'inherit' }}
-							>
-								Score Panel
+								Return On Site
 							</Typography>
 						</Stack>
 					</Toolbar>
