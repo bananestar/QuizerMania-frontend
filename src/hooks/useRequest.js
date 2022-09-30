@@ -106,6 +106,34 @@ export const useUpdated = (url, datas, id) => {
 	return { data, isLoading, errors };
 };
 
+export const useDeleted = (url, id) => {
+	const [data, setData] = useState();
+	const [isLoading, setLoading] = useState(true);
+	const [errors, setErrors] = useState();
+
+	const [token, setToken] = useRecoilState(jwtAtom);
+
+	useEffect(() => {
+		if (id) {
+			axios
+				.delete(url + id, {
+					headers: { Authorization: `Bearer ${token}` },
+				})
+				.then(() => {
+					setData('ok');
+				})
+				.catch((errors) => {
+					setErrors(errors);
+				})
+				.finally(() => {
+					setLoading(false);
+				});
+		}
+	}, [data]);
+
+	return { data, isLoading, errors };
+};
+
 export const useScoreAddUpdate = (datas) => {
 	const [data, setData] = useState();
 	const [isLoading, setLoading] = useState(true);
@@ -133,7 +161,6 @@ export const useScoreAddUpdate = (datas) => {
 
 	return { data, isLoading, errors };
 };
-
 
 export const useLogin = (identifiers) => {
 	const [data, setData] = useState();
@@ -208,7 +235,7 @@ export const useAccount = (userId) => {
 	return { user, isLoading, errors };
 };
 
-export const useUpdatedAccount = (file,userID) => {
+export const useUpdatedAccount = (file, userID) => {
 	const [data, setData] = useState();
 	const [isLoading, setLoading] = useState(true);
 	const [errors, setErrors] = useState();

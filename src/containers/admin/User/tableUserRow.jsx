@@ -13,6 +13,7 @@ const TableUserRow = ({ data }) => {
 	const [popupInfo, setPopupInfo] = useState(false);
 	const [popupEdit, setPopupEdit] = useState(false);
 	const [popupDelete, setPopupDelete] = useState(false);
+	
 	return (
 		<TableRow key={data[0].userID}>
 			<TableCell> {data[0].userID} </TableCell>
@@ -50,7 +51,15 @@ const TableUserRow = ({ data }) => {
 			</TableCell>
 			{popupInfo ? <PopupInfoUser data={data} popup={(e) => setPopupInfo(e)} /> : ''}
 			{popupEdit ? <PopupEditUser data={data} popup={(e) => setPopupEdit(e)} /> : ''}
-			{popupEdit ? <PopupDeleteUser data={data} popup={(e) => setPopupEdit(e)} /> : ''}
+			{popupDelete ? (
+				<PopupDeleteUser
+					pseudo={data[0].pseudo}
+					userID={data[0].userID}
+					popup={(e) => setPopupDelete(e)}
+				/>
+			) : (
+				''
+			)}
 		</TableRow>
 	);
 };

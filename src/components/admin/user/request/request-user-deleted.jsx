@@ -1,16 +1,11 @@
 import { Alert, CircularProgress } from '@mui/material';
-import { useUpdated } from '../../../../hooks/useRequest';
+import { useDeleted } from '../../../../hooks/useRequest';
 
-const RequestUserMail = ({ isAdmin, userID }) => {
+const RequestUserDeleted = ({ userID }) => {
 	const URL_USER = import.meta.env.VITE_API_USERS;
 
-	if (typeof isAdmin !== 'undefined') {
-		const dt = {
-			userID: userID,
-			isAdmin: isAdmin,
-		};
-
-		const { data, isLoading, errors } = useUpdated(URL_USER, dt, userID);
+	if (userID) {
+		const { data, isLoading, errors } = useDeleted(URL_USER, userID);
 
 		if (isLoading) {
 			return <CircularProgress />;
@@ -32,4 +27,4 @@ const RequestUserMail = ({ isAdmin, userID }) => {
 	}
 };
 
-export default RequestUserMail;
+export default RequestUserDeleted;
