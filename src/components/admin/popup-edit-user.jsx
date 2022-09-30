@@ -9,11 +9,11 @@ import {
 	useTheme,
 } from '@mui/material';
 import { forwardRef, useState } from 'react';
-import AdminUserEditAdmin from '../../containers/admin/User/edit/admin-user-edit-admin';
-import AdminUserEditAvatar from '../../containers/admin/User/edit/admin-user-edit-avatar';
-import AdminUserEditMail from '../../containers/admin/User/edit/admin-user-edit-mail';
-import AdminUserEditPseudo from '../../containers/admin/User/edit/admin-user-edit-pseudo';
-import AdminUserEditPwd from '../../containers/admin/User/edit/admin-user-edit-pwd';
+import AdminUserEditAdmin from '../../containers/admin/user/edit/admin-user-edit-admin';
+import AdminUserEditAvatar from '../../containers/admin/user/edit/admin-user-edit-avatar';
+import AdminUserEditMail from '../../containers/admin/user/edit/admin-user-edit-mail';
+import AdminUserEditPseudo from '../../containers/admin/user/edit/admin-user-edit-pseudo';
+import AdminUserEditPwd from '../../containers/admin/user/edit/admin-user-edit-pwd';
 
 const Transition = forwardRef(function Transition(props, ref) {
 	return <Slide direction="up" ref={ref} {...props} />;

@@ -54,7 +54,6 @@ const TableUser = ({ users }) => {
 
 	return (
 		<ThemeProvider theme={darkTheme}>
-			
 			<TextField
 				InputProps={{
 					startAdornment: (
