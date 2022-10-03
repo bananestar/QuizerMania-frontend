@@ -3,7 +3,7 @@ import AddIcon from '@mui/icons-material/Add';
 import { Box } from '@mui/system';
 import TableUser from './tableUser';
 import { useState } from 'react';
-import PopupAddUser from '../../../components/admin/popup-add-user';
+import PopupAddUser from '../../../components/admin/user/popup-add-user';
 
 const PanelUser = ({ users }) => {
 	const [popupAdd, setPopupAdd] = useState(false);
@@ -17,7 +17,9 @@ const PanelUser = ({ users }) => {
 				endIcon={<AddIcon />}
 				variant="outlined"
 				color="success"
-				onClick={() => {setPopupAdd(true)}}
+				onClick={() => {
+					setPopupAdd(true);
+				}}
 			>
 				Add New User
 			</Button>

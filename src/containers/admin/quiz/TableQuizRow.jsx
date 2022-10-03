@@ -3,6 +3,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import { IconButton, TableCell, TableRow } from '@mui/material';
+import PopupInfoQuiz from '../../../components/admin/quiz/popup-info-quiz';
 
 const TableQuizRow = ({ data }) => {
 	const [popupInfo, setPopupInfo] = useState(false);
@@ -39,8 +40,8 @@ const TableQuizRow = ({ data }) => {
 					<DeleteForeverIcon />
 				</IconButton>
 			</TableCell>
-			{/* {popupInfo ? <PopupInfoUser data={data} popup={(e) => setPopupInfo(e)} /> : ''}
-			{popupEdit ? <PopupEditUser data={data} popup={(e) => setPopupEdit(e)} /> : ''}
+			{popupInfo ? <PopupInfoQuiz quizID={data[0].quizID} popup={(e) => setPopupInfo(e)} /> : ''}
+			{/* {popupEdit ? <PopupEditUser data={data} popup={(e) => setPopupEdit(e)} /> : ''}
 			{popupDelete ? (
 				<PopupDeleteUser
 					pseudo={data[0].pseudo}

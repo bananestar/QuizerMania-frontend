@@ -11,7 +11,7 @@ import {
 } from '@mui/material';
 import { forwardRef, useState } from 'react';
 import CloseIcon from '@mui/icons-material/Close';
-import RequestUserDeleted from './user/request/request-user-deleted';
+import RequestUserDeleted from './request/request-user-deleted';
 
 const Transition = forwardRef(function Transition(props, ref) {
 	return <Slide direction="up" ref={ref} {...props} />;
@@ -28,7 +28,6 @@ const PopupDeleteUser = ({ pseudo, userID, popup }) => {
 		setOpen(false);
 		popup(false);
 	};
-
 
 	return (
 		<div>
@@ -58,8 +57,9 @@ const PopupDeleteUser = ({ pseudo, userID, popup }) => {
 											backgroundColor: 'darkred',
 										},
 									}}
-
-                                    onClick={()=>{setSend(true)}}
+									onClick={() => {
+										setSend(true);
+									}}
 								>
 									Yes
 								</Button>

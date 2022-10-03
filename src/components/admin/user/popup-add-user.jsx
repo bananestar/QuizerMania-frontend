@@ -18,7 +18,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import SaveIcon from '@mui/icons-material/Save';
 import { useForm } from 'react-hook-form';
 import { useEffect } from 'react';
-import RequestUserAdd from './user/request/request-user-add';
+import RequestUserAdd from './request/request-user-add';
 
 const Transition = forwardRef(function Transition(props, ref) {
 	return <Slide direction="up" ref={ref} {...props} />;

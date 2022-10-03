@@ -4,10 +4,10 @@ import PersonIcon from '@mui/icons-material/Person';
 import SearchIcon from '@mui/icons-material/Search';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
-import PopupInfoUser from '../../../components/admin/popup-info-user';
+import PopupInfoUser from '../../../components/admin/user/popup-info-user';
 import { useState } from 'react';
-import PopupEditUser from '../../../components/admin/popup-edit-user';
-import PopupDeleteUser from '../../../components/admin/popup-delete-user';
+import PopupEditUser from '../../../components/admin/user/popup-edit-user';
+import PopupDeleteUser from '../../../components/admin/user/popup-delete-user';
 
 const TableUserRow = ({ data }) => {
 	const [popupInfo, setPopupInfo] = useState(false);
