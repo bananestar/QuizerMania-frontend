@@ -1,6 +1,6 @@
 import { Alert, LinearProgress } from '@mui/material';
 import { Box } from '@mui/system';
-import PanelUser from '../../containers/admin/User/panel';
+import PanelUser from '../../containers/admin/user/panelUser';
 import { useQuery } from '../../hooks/useRequest';
 import NotFound from '../error/notfound';
 
@@ -15,10 +15,9 @@ const AdminUserPanel = () => {
 		console.error('-------------ERROR------------');
 	}
 
-	
 	return (
 		<Box>
-            <h1>Admin User Panel</h1>
+			<h1>Admin User Panel</h1>
 			{isLoading ? (
 				<LinearProgress color="secondary" />
 			) : errors ? (
@@ -28,7 +27,7 @@ const AdminUserPanel = () => {
 			) : data ? (
 				<PanelUser users={data} />
 			) : (
-				<NotFound/>
+				<NotFound />
 			)}
 		</Box>
 	);
