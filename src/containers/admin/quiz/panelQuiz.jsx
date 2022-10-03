@@ -10,7 +10,7 @@ const PanelQuiz = ({ quiz: qz }) => {
 
 	const countQuiz = qz.count;
 	const quiz = qz.results;
-	console.log(quiz);
+	// console.log(quiz);
 	return (
 		<>
 			<h3>Number of Quiz: {countQuiz} </h3>

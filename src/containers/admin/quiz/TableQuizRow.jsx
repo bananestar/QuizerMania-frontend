@@ -9,7 +9,7 @@ const TableQuizRow = ({ data }) => {
 	const [popupInfo, setPopupInfo] = useState(false);
 	const [popupEdit, setPopupEdit] = useState(false);
 	const [popupDelete, setPopupDelete] = useState(false);
-	console.log(data);
+	// console.log(data);
 
 	return (
 		<TableRow key={data[0].quizID}>
