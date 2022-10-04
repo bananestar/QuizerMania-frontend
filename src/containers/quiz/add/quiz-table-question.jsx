@@ -47,7 +47,7 @@ const questionItem = {
 	],
 };
 
-const QuizTableQuestion = ({ save }) => {
+const QuizTableQuestion = ({ save, control }) => {
 	const [questions, setQuestions] = useState([questionItem]);
 
 	const handleUpdate = (e) => {
@@ -127,10 +127,11 @@ const QuizTableQuestion = ({ save }) => {
 							questions={questions}
 							updated={(e) => handleUpdate(e)}
 							deleted={(e) => handleDeleteQuestion(e)}
+							control={(e) => {control(e)}}
 						/>
 					</TableBody>
 				</Table>
-				<Box sx={{p:2}}>
+				<Box sx={{ p: 2 }}>
 					<Button endIcon={<AddIcon />} variant="contained" onClick={handleAddQuestion}>
 						Add
 					</Button>

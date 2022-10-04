@@ -7,7 +7,7 @@ import { useState } from 'react';
 import RequestQuizTheme from '../../../components/quiz/request/request-quiz-theme';
 import { useEffect } from 'react';
 
-const QuizQuestionItem = ({ question, updated, deleted }) => {
+const QuizQuestionItem = ({ question, updated, deleted, control }) => {
 	const [libelleQ, setLibelleQ] = useState(question.libelle);
 	const [reponses, setReponses] = useState(question.reponses);
 	const [themeSelected, setThemeSelected] = useState();
@@ -176,6 +176,10 @@ const QuizQuestionItem = ({ question, updated, deleted }) => {
 		controlField(reponses[3].libelle, 4);
 	}, [reponses[3].libelle]);
 
+	useEffect(() => {
+		control(security);
+	}, [security]);
+
 	return (
 		<>
 			<TableRow>
@@ -278,7 +282,7 @@ const QuizQuestionItem = ({ question, updated, deleted }) => {
 					</Grid>
 				</TableCell>
 				<TableCell align="center">
-					<Container >
+					<Container>
 						<Button
 							variant="contained"
 							sx={{

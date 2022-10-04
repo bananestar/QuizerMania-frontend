@@ -1,21 +1,28 @@
 import { TextField } from '@mui/material';
 import { useEffect, useState } from 'react';
 
-const QuizFormName = ({ quizName, error }) => {
+const QuizFormName = ({ quizName, error, control }) => {
 	const [quiz, setQuiz] = useState(' ');
+	const [security, setSecurity] = useState(true);
 	const [errorMessageQuiz, setErrorMessageQuiz] = useState('');
 
 	useEffect(() => {
 		if (quiz.length <= 0) {
 			setErrorMessageQuiz('the field is empty');
 			error(true);
+			setSecurity(true);
 		}
 		if (quiz.length > 0) {
 			setErrorMessageQuiz('');
 			quizName(quiz);
 			error(false);
+			setSecurity(false);
 		}
 	}, [quiz]);
+
+	useEffect(() => {
+		control(security);
+	}, [security]);
 
 	return (
 		<>

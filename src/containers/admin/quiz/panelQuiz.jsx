@@ -3,6 +3,7 @@ import { useState } from 'react';
 import AddIcon from '@mui/icons-material/Add';
 import { Box } from '@mui/system';
 import TableQuiz from './TableQuiz';
+import PopupAddQuiz from '../../../components/admin/quiz/popup-add-quiz';
 
 
 const PanelQuiz = ({ quiz: qz }) => {
@@ -25,7 +26,7 @@ const PanelQuiz = ({ quiz: qz }) => {
 				Add New Quiz
 			</Button>
 
-            {popupAdd ? '' : ''}
+            {popupAdd ? <PopupAddQuiz popup={(e)=>setPopupAdd(e)} /> : ''}
 
             <Box sx={{ p: 5 }}>
 				<TableQuiz quiz={quiz}/>
