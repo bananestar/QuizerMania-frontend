@@ -7,6 +7,7 @@ const URL_LOGIN = import.meta.env.VITE_API_LOGIN;
 const URL_REGISTRATION = import.meta.env.VITE_API_REGISTER;
 const URL_USER = import.meta.env.VITE_API_USERS;
 const URL_SCORE = import.meta.env.VITE_API_SCORE;
+const URL_QUIZ_UPDATED = import.meta.env.VITE_API_QUIZ + 'updatedQuiz/';
 
 export const useQuery = (url, id) => {
 	const [data, setData] = useState();
@@ -133,6 +134,34 @@ export const useDeleted = (url, id) => {
 
 	return { data, isLoading, errors };
 };
+
+export const useUpdatedQuiz = (dt,id) => {
+	const [data, setData] = useState();
+	const [isLoading, setLoading] = useState(true);
+	const [errors, setErrors] = useState();
+
+	const [token, setToken] = useRecoilState(jwtAtom);
+
+	useEffect(() => {
+		if (dt) {
+			axios
+				.put(URL_QUIZ_UPDATED+id , dt, {
+					headers: { Authorization: `Bearer ${token}` },
+				})
+				.then(({ data }) => {
+					setData(data);
+				})
+				.catch((errors) => {
+					setErrors(errors);
+				})
+				.finally(() => {
+					setLoading(false);
+				});
+		}
+	}, [data]);
+
+	return { data, isLoading, errors };
+}
 
 export const useScoreAddUpdate = (datas) => {
 	const [data, setData] = useState();

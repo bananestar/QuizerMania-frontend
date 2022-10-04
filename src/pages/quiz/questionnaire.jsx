@@ -1,4 +1,4 @@
-import { Alert, Button, CircularProgress, Typography } from '@mui/material';
+import { Alert, Button, CircularProgress } from '@mui/material';
 import { Box } from '@mui/system';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { useRecoilState } from 'recoil';

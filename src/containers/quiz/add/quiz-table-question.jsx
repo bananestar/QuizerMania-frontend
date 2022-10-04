@@ -64,36 +64,35 @@ const QuizTableQuestion = ({ save }) => {
 
 	const handleAddQuestion = () => {
 		if (questions.length > 0) {
-			console.log('pouet');
 			const id = questions[questions.length - 1].questionID;
 
 			const newQuestion = {
 				questionID: id + 1,
-				libelle: 'votre question ?',
+				libelle: 'Your Question ?',
 				themeID: 1,
 				reponses: [
 					{
 						reponseID: 1,
 						isValid: true,
-						libelle: 'proposition 1',
+						libelle: 'Proposal 1',
 						questionID: id + 1,
 					},
 					{
 						reponseID: 2,
 						isValid: false,
-						libelle: 'proposition 2',
+						libelle: 'Proposal 2',
 						questionID: id + 1,
 					},
 					{
 						reponseID: 3,
 						isValid: false,
-						libelle: 'proposition 3',
+						libelle: 'Proposal 3',
 						questionID: id + 1,
 					},
 					{
 						reponseID: 4,
 						isValid: false,
-						libelle: 'proposition 4',
+						libelle: 'Proposal 4',
 						questionID: id + 1,
 					},
 				],
