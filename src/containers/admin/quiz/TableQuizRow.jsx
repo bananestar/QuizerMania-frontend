@@ -6,6 +6,7 @@ import { IconButton, TableCell, TableRow } from '@mui/material';
 import PopupInfoQuiz from '../../../components/admin/quiz/popup-info-quiz';
 import PopupEditQuiz from '../../../components/admin/quiz/popup-edit-quiz';
 import RequestQuizGetAllQuestionQuiz from '../../../components/admin/quiz/request/request-quiz-getAllQuestionQuiz';
+import PopupDeleteQuiz from '../../../components/admin/quiz/popup-delete-quiz';
 
 const TableQuizRow = ({ data }) => {
 	const [popupInfo, setPopupInfo] = useState(false);
@@ -53,21 +54,20 @@ const TableQuizRow = ({ data }) => {
 						}}
 					/>
 					{dt ? <PopupEditQuiz dt={dt} popup={(e) => setPopupEdit(e)} /> : ''}
-					
 				</>
 			) : (
 				''
 			)}
-			{/* {popupEdit ? <PopupEditUser data={data} popup={(e) => setPopupEdit(e)} /> : ''}
+
 			{popupDelete ? (
-				<PopupDeleteUser
-					pseudo={data[0].pseudo}
+				<PopupDeleteQuiz
+					quizName={data[0].name}
 					quizID={data[0].quizID}
 					popup={(e) => setPopupDelete(e)}
 				/>
 			) : (
 				''
-			)} */}
+			)}
 		</TableRow>
 	);
 };
