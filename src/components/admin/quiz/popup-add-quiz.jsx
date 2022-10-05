@@ -16,11 +16,10 @@ import { forwardRef, useState } from 'react';
 import CloseIcon from '@mui/icons-material/Close';
 import SaveIcon from '@mui/icons-material/Save';
 import { useForm } from 'react-hook-form';
-// import RequestQuizAdd from './request/request-quiz-add';
-import QuizFormName from '../../../containers/quiz/add/quiz-form-name';
 import QuizTableQuestion from '../../../containers/quiz/add/quiz-table-question';
 import PopupConfirmQuiz from './popup-confirm-quiz';
 import { useEffect } from 'react';
+import AdminQuizFormName from '../../../containers/admin/quiz/add/admin-quiz-addName';
 
 const Transition = forwardRef(function Transition(props, ref) {
 	return <Slide direction="up" ref={ref} {...props} />;
@@ -86,7 +85,7 @@ const PopupAddQuiz = ({ popup }) => {
 							<>
 								<Grid container direction="column" spacing={2}>
 									<Grid item>
-										<QuizFormName
+										<AdminQuizFormName
 											quizName={(e) => setQuizName(e)}
 											error={(e) => setErrors(e)}
 											control={(e) => {

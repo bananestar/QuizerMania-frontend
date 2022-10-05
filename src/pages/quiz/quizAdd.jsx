@@ -12,6 +12,7 @@ const QuizAddPage = () => {
 	const [errors, setErrors] = useState('');
 
 	const [send, setSend] = useState(false);
+	const [controlName, setControlName] = useState(true);
 
 	// useEffect(() => {
 	// 	console.log(quizName);
@@ -45,7 +46,7 @@ const QuizAddPage = () => {
 					</Button>
 				</Grid>
 				<Grid item xs={8}>
-					<QuizTableQuestion save={(e) => setQuizQuestions(e)} />
+					<QuizTableQuestion save={(e) => setQuizQuestions(e)} control={(e)=>console.log(e)} />
 				</Grid>
 			</Grid>
 		</Box>
