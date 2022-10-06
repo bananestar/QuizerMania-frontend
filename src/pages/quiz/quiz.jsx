@@ -44,6 +44,7 @@ const QuizPage = () => {
 					<Grid
 						item
 						sx={{
+							m: 1,
                             width: 275,
 							boxShadow: 6,
 							':hover': {
@@ -71,6 +72,7 @@ const QuizPage = () => {
 							<Grid
 								item
 								sx={{
+									m: 1,
                                     width: 275,
 									boxShadow: 6,
 									':hover': {

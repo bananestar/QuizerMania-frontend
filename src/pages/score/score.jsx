@@ -29,10 +29,11 @@ const ScorePage = () => {
 					{quiz.map((e) => {
 						return (
 							<>
-								&nbsp; &nbsp; &nbsp;
+								
 								<Grid
 									item
 									sx={{
+										m: 1,
 										width: 275,
 										boxShadow: 6,
 										':hover': {
