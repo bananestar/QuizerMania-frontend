@@ -1,6 +1,5 @@
-import { Alert, CircularProgress, Grid } from '@mui/material';
-import { Box } from '@mui/system';
-import ScoreCard from '../../containers/score/score-card';
+import { Alert, CircularProgress } from '@mui/material';
+import DisplayScore from '../../containers/score/score-display';
 import { useQuery } from '../../hooks/useRequest';
 
 const ScorePage = () => {
@@ -20,36 +19,11 @@ const ScorePage = () => {
 		);
 	}
 	if (data) {
-		const quiz = data.results.map((e) => {
+		const score = data.results.map((e) => {
 			return e;
 		});
-		return (
-			<Box sx={{ marginLeft: 30, flexGrow: 1 }}>
-				<Grid container >
-					{quiz.map((e) => {
-						return (
-							<>
-								
-								<Grid
-									item
-									sx={{
-										m: 1,
-										width: 275,
-										boxShadow: 6,
-										':hover': {
-											boxShadow: 20,
-										},
-									}}
-								>
-                                    <ScoreCard quiz={e} />
-                                </Grid>
-							</>
-						);
-					})}
-				</Grid>
-			</Box>
-		);
-	}
-};
+		return <DisplayScore score={score} />
+			
+	}};
 
 export default ScorePage;

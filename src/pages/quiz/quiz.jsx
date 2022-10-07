@@ -5,12 +5,18 @@ import {
 	CardMedia,
 	CircularProgress,
 	Grid,
+	InputAdornment,
+	TextField,
 	Typography,
 } from '@mui/material';
 import { Box } from '@mui/system';
 import { Link, useNavigate } from 'react-router-dom';
 import QuizCard from '../../containers/quiz/game/quiz-card';
 import { useQuery } from '../../hooks/useRequest';
+import SearchIcon from '@mui/icons-material/Search';
+import { useState } from 'react';
+import DisplayQuiz from '../../containers/quiz/display/quiz-display';
+
 
 const QuizPage = () => {
 	const navigate = useNavigate();
@@ -32,60 +38,13 @@ const QuizPage = () => {
 	}
 	if (data) {
 		const quiz = data.results;
-		// console.log(quiz);
 
 		if (quiz === undefined) {
 			navigate('/404');
 		}
 
 		return (
-			<Box sx={{ marginLeft: 30, flexGrow: 1 }}>
-				<Grid container>
-					<Grid
-						item
-						sx={{
-							m: 1,
-                            width: 275,
-							boxShadow: 6,
-							':hover': {
-								boxShadow: 20,
-							},
-						}}
-						
-					>
-						<Card
-							component={Link}
-							to="/quiz/add"
-						>
-							<CardMedia component="img" alt="quiz img" height="200" image="" />
-							<CardContent>
-								<Typography sx={{ fontSize: 18 }} variant="h5" component="div" gutterBottom>
-									add
-								</Typography>
-							</CardContent>
-						</Card>
-					</Grid>
-
-					{quiz.map((e) => (
-						<>
-							&nbsp; &nbsp; &nbsp;
-							<Grid
-								item
-								sx={{
-									m: 1,
-                                    width: 275,
-									boxShadow: 6,
-									':hover': {
-										boxShadow: 20,
-									},
-								}}
-							>
-								<QuizCard quiz={e} />
-							</Grid>
-						</>
-					))}
-				</Grid>
-			</Box>
+			<DisplayQuiz quiz={quiz} />
 		);
 	}
 };
