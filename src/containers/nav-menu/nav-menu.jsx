@@ -181,7 +181,7 @@ const NavMenu = () => {
 								>
 									<CreateIcon />
 								</ListItemIcon>
-								<ListItemText primary="sign up" sx={{ opacity: open ? 1 : 0 }} />
+								<ListItemText primary="Sign Up" sx={{ opacity: open ? 1 : 0 }} />
 							</ListItemButton>
 						</ListItem>
 						<ListItem
@@ -207,7 +207,7 @@ const NavMenu = () => {
 								>
 									<LoginIcon />
 								</ListItemIcon>
-								<ListItemText primary="login" sx={{ opacity: open ? 1 : 0 }} />
+								<ListItemText primary="Login" sx={{ opacity: open ? 1 : 0 }} />
 							</ListItemButton>
 						</ListItem>
 					</List>
@@ -262,7 +262,7 @@ const NavMenu = () => {
 									>
 										<LogoutIcon />
 									</ListItemIcon>
-									<ListItemText primary="logout" sx={{ opacity: open ? 1 : 0 }} />
+									<ListItemText primary="Logout" sx={{ opacity: open ? 1 : 0 }} />
 								</ListItemButton>
 							</ListItem>
 						</List>
@@ -293,7 +293,7 @@ const NavMenu = () => {
 											>
 												<AdminPanelSettingsIcon sx={{ color: 'red' }} />
 											</ListItemIcon>
-											<ListItemText primary="quiz" sx={{ opacity: open ? 1 : 0 }} />
+											<ListItemText primary="Admin Mode" sx={{ opacity: open ? 1 : 0 }} />
 										</ListItemButton>
 									</ListItem>
 								</List>
@@ -328,7 +328,7 @@ const NavMenu = () => {
 							>
 								<LensBlurIcon />
 							</ListItemIcon>
-							<ListItemText primary="quiz" sx={{ opacity: open ? 1 : 0 }} />
+							<ListItemText primary="Quiz" sx={{ opacity: open ? 1 : 0 }} />
 						</ListItemButton>
 					</ListItem>
 					<ListItem
@@ -354,7 +354,7 @@ const NavMenu = () => {
 							>
 								<ScoreboardIcon />
 							</ListItemIcon>
-							<ListItemText primary="score" sx={{ opacity: open ? 1 : 0 }} />
+							<ListItemText primary="Score" sx={{ opacity: open ? 1 : 0 }} />
 						</ListItemButton>
 					</ListItem>
 				</List>
